@@ -1,0 +1,12 @@
+body {
+    font-family: 'Times New Roman', 'Times New Roman', Times, serif;
+    background-color: rgba(15, 15, 80, 0.302);
+}
+
+h1 {
+    display: flex;
+    font-size: 20rem;
+    color:whitesmoke;
+    justify-content: center;
+    align-items: center;
+}
