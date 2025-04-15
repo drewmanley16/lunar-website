@@ -11,11 +11,10 @@
 <body>
 
   <div class="title-stack">
-    <div class="moon"></div>
     <h1>LUNAR</h1>
     <h2>SLEEP DRINK</h2>
   </div>
-
+  <div class="moon" id="moon"></div>
   
   <div class="can-stack">
     <div class="orange-can">
@@ -26,7 +25,15 @@
       <img src="images/blue-can.png" class="blue-can">
     </div>
   </div>
+  <script>
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const moon = document.getElementById("moon");
   
+      let moonY = Math.min(300, scrollY * 0.5); // Adjust for speed
+      moon.style.top = `${moonY}px`;
+    });
+  </script>  
 </body>
 
 

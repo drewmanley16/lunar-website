@@ -1,71 +1,85 @@
-
-
 /* FUNCTIONS */
 
 #star {
-    color: rgb(217, 188, 232);
-    transition: font-size 0.3s ease; /* Smooth size transition */
+  color: rgb(217, 188, 232);
+  transition: font-size 0.3s ease; /* Smooth size transition */
 }
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background-image: linear-gradient(to bottom, rgb(48, 33, 36), rgb(139, 92, 62));
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(48, 33, 36),
+    rgb(139, 92, 62)
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
 
 .title-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .moon {
-    height: 18.5vw;
-    width: 18.5vw;
-    background-color: rgb(233, 212, 171);
-    border-radius: 50%;
-    margin: 2vh 0;
+  height: 18.5vw;
+  width: 18.5vw;
+  background-color: rgb(233, 212, 171);
+  border-radius: 50%;
+  margin: 2vh 0;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  transition: bottom 0.2s ease-out;
+  top: 0px;
+  box-shadow: 0 0 40px #fff;
+  transition: top 0.2s ease-out;
 }
 
 h1 {
-    font-size: 13vw;
-    color: rgb(233, 212, 171);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    letter-spacing: 0.01em;
-    margin: 0;
+  font-size: 13vw;
+  color: rgb(233, 212, 171);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.01em;
+  margin: 0;
 }
 h2 {
-    font-size: 2.5vw;
-    color: rgb(192, 177, 144);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    letter-spacing: 0.01em;
-    margin: 0;
+  font-size: 2.5vw;
+  color: rgb(192, 177, 144);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.01em;
+  margin: 0;
 }
 .can-stack {
-    display: flex;               /* make children line up horizontally */
-    justify-content: center;     /* center them in the parent container */
-    gap: 5vw;                    /* space between the cans */
-    margin-top: 5vh;
-  }
-  
-  .orange-can, 
-  .blue-can {
-    max-width: 20vw;
-    height: auto;
-    margin-top: 50vh;
-  }
-  
-  .orange-can img,
-  .blue-can img {
-    width: 100%;
-    height: auto;
-  }
+  display: flex; /* make children line up horizontally */
+  justify-content: center; /* center them in the parent container */
+  gap: 5vw; /* space between the cans */
+  margin-top: 5vh;
+}
+
+.orange-can,
+.blue-can {
+  max-width: 20vw;
+  height: auto;
+  margin-top: 50vh;
+}
+
+.orange-can img,
+.blue-can img {
+  width: 100%;
+  height: auto;
+}

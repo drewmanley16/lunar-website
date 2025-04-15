@@ -31,5 +31,10 @@ class Star {
         star.style.transform = "rotate(30deg)";
         star.drawTinkleStar();
     })
+        // Color shift: blend from white to orange-ish as it sets
+        const progress = Math.min(1, scrollY / 600); // 0 to 1 as you scroll
+        const colorValue = Math.floor(255 - progress * 100); // white to warm
+        const color = `radial-gradient(circle at 30% 30%, rgb(255,${colorValue},${colorValue}), rgb(200,${colorValue - 30},${colorValue - 30}))`;
+    
+        moon.style.background = color;
   });
-  
