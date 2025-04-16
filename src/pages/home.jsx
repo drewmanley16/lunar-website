@@ -8,7 +8,7 @@ function Home() {
       const moon = document.getElementById("moon");
 
       // Move the moon down with scroll
-      const moonY = scrollY * 0.2;
+      const moonY = (scrollY * 0.2) + 38.5;
       if (moon) moon.style.top = `${moonY}px`;
     };
 
