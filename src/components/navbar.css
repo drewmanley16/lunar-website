@@ -1,27 +1,25 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0rem 2rem;
+  justify-content: center;
+  padding: 1rem 2rem;
   position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  background-color: transparent;
-  box-sizing: border-box;
-  max-width: 100vw;
+  background-color: rgb(144, 71, 26);
   z-index: 1000;
-  margin-top: 1rem;
+  box-sizing: border-box;
+  height: 60px;
 }
 
-/* This is the magic: use absolute centering */
 .navbar-links {
-  position: absolute;
-  gap: 6rem;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
+  gap: 4rem;
   list-style: none;
   white-space: nowrap;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-links a {
@@ -34,4 +32,40 @@
 
 .navbar-links a:hover {
   color: white;
+}
+
+.navbar-toggle {
+  position: relative; /* ✅ change from absolute */
+  display: none;
+  font-size: 3rem;
+  color: #e9d4ab;
+  cursor: pointer;
+  bottom: 0.25rem;
+}
+
+/* Responsive: show toggle, hide links by default */
+@media (max-width: 1000px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: rgb(144, 71, 26);
+    padding: 1rem 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
 }
