@@ -12,10 +12,11 @@ function Navbar() {
       </div>
 
       <ul className={`navbar-links ${menuOpen ? 'active' : ''}`}>
+        <li><Link to="/">HOME</Link></li>
         <li><Link to="/about">WHAT IS LUNAR</Link></li>
-        <li><Link to="/educational">BUY NOW</Link></li>
-        <li><Link to="/campus">INTERACTIVE</Link></li>
-        <li><Link to="/partner">ABOUT US</Link></li>
+        <li><Link to="/buy">BUY NOW</Link></li>
+        <li><Link to="/interactive">INTERACTIVE</Link></li>
+        <li><Link to="/about-us">ABOUT US</Link></li>
         <li><Link to="/contact">CONTACT</Link></li>
       </ul>
     </nav>
