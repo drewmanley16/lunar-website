@@ -8,19 +8,8 @@ function Home() {
       const moon = document.getElementById("moon");
 
       // Move the moon down with scroll
-      const moonY = scrollY * 1.5;
+      const moonY = scrollY * 0.2;
       if (moon) moon.style.top = `${moonY}px`;
-
-      // Background color blend
-      if (scrollY === 0) {
-        document.body.style.backgroundColor = "rgb(48, 33, 36)";
-      } else {
-        const bgProgress = Math.min(1, scrollY / 1000);
-        const r = Math.floor(48 + (139 - 48) * bgProgress);
-        const g = Math.floor(33 + (92 - 33) * bgProgress);
-        const b = Math.floor(36 + (62 - 36) * bgProgress);
-        document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
