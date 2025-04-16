@@ -45,9 +45,6 @@ function Home() {
           <img src="images/blue-can.png" alt="blue can" className="blue-can" />
         </div>
       </div>
-
-      {/* Spacer so you can scroll */}
-      <div style={{ height: '400vh' }}></div>
     </div>
   );
 }
