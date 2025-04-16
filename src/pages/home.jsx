@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../index.css'; // your global styles
+import './home.css'
 
 function Home() {
   useEffect(() => {
