@@ -17,6 +17,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
+  margin-top: 15vh;
   z-index: 2;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -29,9 +30,9 @@ body {
   background: radial-gradient(
     circle at 30% 30%,
     rgb(255, 255, 255),
-    rgb(200, 200, 200)
-  );
+    rgb(200, 200, 200));
   border-radius: 50%;
+  margin-top: 10vh;
   top: 5vh;
   left: 50%;
   transform: translateX(-50%);
