@@ -5,15 +5,12 @@ import './navbar.css';
 function Navbar() {
   return (
 <nav className="navbar">
-  <div className="navbar-logo">
-    <img src="src/images/lunar-logo.png" alt="Logo" />
-  </div>
   <ul className="navbar-links">
-    <li><Link to="/about">About</Link></li>
-    <li><Link to="/educational">Educational</Link></li>
-    <li><Link to="/campus">Campus</Link></li>
-    <li><Link to="/partner">Partner</Link></li>
-    <li><Link to="/contact">Contact</Link></li>
+    <li><Link to="/about">WHAT IS LUNAR</Link></li>
+    <li><Link to="/educational">BUY NOW</Link></li>
+    <li><Link to="/campus">INTERACTIVE</Link></li>
+    <li><Link to="/partner">ABOUT US</Link></li>
+    <li><Link to="/contact">CONTACT</Link></li>
   </ul>
 </nav>
   );
