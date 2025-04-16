@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="land.css">
-  <title> Lunar: Melatonin Drink</title>
+  <title> Lunar: Melatonin Drink </title>
 
 </head>
 
 <body>
+  <div class="moon" id="moon"></div>
 
   <div class="title-stack">
     <h1>LUNAR</h1>
-    <h2>SLEEP DRINK</h2>
+    <h2>DRINK SLEEP</h2>
   </div>
-  <div class="moon" id="moon"></div>
-  
+
   <div class="can-stack">
     <div class="orange-can">
       <img src="images/orange-can.png" class="orange-can">
@@ -29,11 +29,19 @@
     window.addEventListener("scroll", () => {
       const scrollY = window.scrollY;
       const moon = document.getElementById("moon");
-  
-      let moonY = Math.min(300, scrollY * 0.5); // Adjust for speed
+
+      // Make it move fast and far
+      let moonY = scrollY * 1.5;
       moon.style.top = `${moonY}px`;
+      // Optional: background shift
+      const bgProgress = Math.min(1, scrollY / 1000);
+      const r = Math.floor(48 + (139 - 48) * bgProgress);
+      const g = Math.floor(33 + (92 - 33) * bgProgress);
+      const b = Math.floor(36 + (62 - 36) * bgProgress);
+      document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      
     });
-  </script>  
+  </script>
 </body>
 
 
@@ -41,4 +49,3 @@
 
 
 </html>
-
