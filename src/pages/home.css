@@ -2,9 +2,6 @@ body {
   margin: 0;
   padding: 0;
   min-height: 400vh;
-  background: linear-gradient(180deg, #611f0f, #cf6929);
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   transition: background 0.4s ease-out;
