@@ -1,44 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './navbar.css';
 
-const Navbar = () => {
-  const [activeTab, setActiveTab] = useState('#home'); // Default active tab
-
-  const handleClick = (tab) => {
-    setActiveTab(tab); // Update the active tab
-  };
-
+function Navbar() {
   return (
-    <div className="topnav">
-      <a
-        href="#home"
-        className={activeTab === '#home' ? 'active' : ''}
-        onClick={() => handleClick('#home')}
-      >
-        Home
-      </a>
-      <a
-        href="#news"
-        className={activeTab === '#news' ? 'active' : ''}
-        onClick={() => handleClick('#news')}
-      >
-        News
-      </a>
-      <a
-        href="#contact"
-        className={activeTab === '#contact' ? 'active' : ''}
-        onClick={() => handleClick('#contact')}
-      >
-        Contact
-      </a>
-      <a
-        href="#about"
-        className={activeTab === '#about' ? 'active' : ''}
-        onClick={() => handleClick('#about')}
-      >
-        About
-      </a>
-    </div>
+<nav className="navbar">
+  <div className="navbar-logo">
+    <img src="src/images/lunar-logo.png" alt="Logo" />
+  </div>
+  <ul className="navbar-links">
+    <li><Link to="/about">About</Link></li>
+    <li><Link to="/educational">Educational</Link></li>
+    <li><Link to="/campus">Campus</Link></li>
+    <li><Link to="/partner">Partner</Link></li>
+    <li><Link to="/contact">Contact</Link></li>
+  </ul>
+</nav>
   );
-};
+}
 
 export default Navbar;
