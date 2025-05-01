@@ -4,18 +4,22 @@
   justify-content: center;
   padding: 1rem 2rem;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgb(144, 71, 26);
+  top: 20px; /* adds space from top */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(3, 8, 23);
   z-index: 1000;
   box-sizing: border-box;
-  height: 60px;
+  height: 40px;
+  width: 90%; /* not full width */
+  max-width: 1000px; /* optional max width */
+  border-radius: 16px; /* curved edges */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* optional shadow for floating look */
 }
 
 .navbar-links {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   list-style: none;
   white-space: nowrap;
   margin: 0;
@@ -23,11 +27,13 @@
 }
 
 .navbar-links a {
-  font-family: cambria;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-family: "Playfair Display", serif; /* Or try 'Inter', 'Lora', or 'DM Serif Text' */
+  font-size: 1rem;
+  font-weight: 500;
   color: #e9d4ab;
   text-decoration: none;
+  letter-spacing: 0.5px;
+  padding: 0 0.25rem;
 }
 
 .navbar-links a:hover {

@@ -27,14 +27,14 @@ a:hover {
 }
 
 /* index.css */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  height: 100%;               /* ensure html fills the viewport */
-  background: linear-gradient(180deg, #250750, #8a499c) no-repeat fixed;
-  background-size: cover;     /* cover the entire area */
+  height: 100%; /* ensure html fills the viewport */
+  background: linear-gradient(180deg, #611f0f, #cf6929) no-repeat fixed;
+  background-size: cover; /* cover the entire area */
 }
-
 
 body {
   margin: 0;

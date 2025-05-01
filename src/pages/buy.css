@@ -1,0 +1,68 @@
+.buy-now-page {
+  background: url("../images/lunar-skyline2.png") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* important to make padding work */
+  align-items: center;
+}
+
+.buy-now-container {
+  padding: 120px 2rem 2rem 2rem; /* Top padding = navbar height + extra space */
+  width: 100%;
+  max-width: 1000px;
+  color: white;
+  font-family: "PT Serif", serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.buy-now-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.buy-now-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.buy-now-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.buy-now-form input,
+.buy-now-form textarea {
+  flex: 1 1 30%;
+  min-width: 200px;
+  padding: 0.8rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.buy-now-form input::placeholder,
+.buy-now-form textarea::placeholder {
+  color: #cccccc;
+}
+
+.buy-now-form button {
+  flex: 1 1 100%;
+  color: #0a0a23;
+  font-weight: bold;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
