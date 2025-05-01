@@ -4,4 +4,4 @@ function Educational() {
   return <div>Campus Page</div>;
 }
 
-export default Educational;
+export default Educational; 

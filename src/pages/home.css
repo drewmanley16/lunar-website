@@ -7,6 +7,12 @@ body {
   transition: background 0.4s ease-out;
 }
 
+.home {
+  background-image: url('~./src/images/homepage.png');
+  background-size: cover;
+  background-position: center;
+}
+
 .title-stack {
   display: flex;
   flex-direction: column;
@@ -26,7 +32,7 @@ body {
   width: 18.5vw;
   background: radial-gradient(
     circle at 30% 30%,
-    rgb(255, 255, 255),
+    rgb(211, 211, 211),
     rgb(200, 200, 200));
   border-radius: 50%;
   margin-top: 10vh;
@@ -41,7 +47,7 @@ body {
 
 h1 {
   font-size: 13vw;
-  color: rgb(233, 212, 171);
+  color: rgb(186, 183, 189);
   font-family: system-ui, sans-serif;
   letter-spacing: 0.01em;
   margin: 0;
@@ -49,28 +55,17 @@ h1 {
 
 h2 {
   font-size: 2.5vw;
-  color: rgb(192, 177, 144);
+  color: rgb(142, 133, 147);
   font-family: system-ui, sans-serif;
   letter-spacing: 0.01em;
   margin: 0;
 }
 
-.can-stack {
-  display: flex;
-  justify-content: center;
-  gap: 5vw;
-  margin-top: 5vh;
-}
-
-.orange-can,
-.blue-can {
-  max-width: 20vw;
-  height: auto;
-  margin-top: 50vh;
-}
-
-.orange-can img,
-.blue-can img {
-  width: 100%;
-  height: auto;
+.buildings {
+  width: 100vw;         /* Full viewport width */
+  display: block;       /* Prevent inline spacing */
+  position: absolute;   /* Optional: if you want it behind the text */
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
