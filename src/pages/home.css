@@ -5,23 +5,25 @@
   box-sizing: border-box;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  transition: background 0.4s ease-out;
-  height: 300vh;
-}
-
-/* ─── HOME WRAPPER BACKGROUND ──────────────────────────────────── */
 .home {
-  background-image: url("./images/homepage.png"); /* adjust path as needed */
+  background-color: linear-gradient;
   background-size: cover;
   background-position: center;
   position: relative;
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh;            /* ← changed from 300vh */
+  overflow: visible;        /* allow the next section to scroll into view */
+  display: flex;
+  flex-direction: column;
+  transition: background 0.4s ease-out;
+  background: linear-gradient(
+    45deg,
+    rgb(57, 25, 121),
+    rgb(20, 3, 44)
+  )
 }
+
+
 
 /* ─── MOON (styled DIV) ────────────────────────────────────────── */
 .moon {
@@ -39,7 +41,7 @@ body {
     rgb(200, 200, 200)
   );
   box-shadow: 0 0 40px #fff;
-  z-index: 2;
+  z-index: 0;
   transition: top 0.2s ease-out,
               background 0.4s ease-out;
 }
@@ -55,7 +57,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  z-index: 3;
+  z-index: 4;
 }
 
 .title-stack h1 {
@@ -88,11 +90,12 @@ body {
   width: 100vw;
   height: auto;
   display: block;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* ─── SUB-BUILDINGS SECTION ───────────────────────────────────── */
 .sub-buildings {
+  margin-top: 100vh;        /* push it just below the hero */
   width: 100vw;
   height: 100vh;
   background: #0f0f32;
