@@ -11,16 +11,17 @@
   background-position: center;
   position: relative;
   width: 100vw;
-  height: 100vh;            /* ← changed from 300vh */
+  height: 500vh;            /* ← changed from 300vh */
   overflow: visible;        /* allow the next section to scroll into view */
   display: flex;
   flex-direction: column;
   transition: background 0.4s ease-out;
-  background: linear-gradient(
-    45deg,
-    rgb(57, 25, 121),
-    rgb(20, 3, 44)
-  )
+  background: radial-gradient(
+    circle 50vw at 50% 10%, /* 30% of the container size */
+    rgb(54, 18, 127),
+    rgb(8, 9, 51)
+  );
+  background-size: cover;
 }
 
 
@@ -43,14 +44,16 @@
   box-shadow: 0 0 40px #fff;
   z-index: 0;
   transition: top 0.2s ease-out,
-              background 0.4s ease-out;
+  background 0.4s ease-out;
+  will-change: transform;
 }
+
 
 /* ─── TITLE STACK ──────────────────────────────────────────────── */
 .title-stack {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50vh;
+  left: 50vw;
   transform: translate(-50%, -50%);
   margin-top: 15vh;
   display: flex;
@@ -86,17 +89,18 @@
 .buildings {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 400vh;
   width: 100vw;
   height: auto;
   display: block;
   z-index: 3;
+  will-change: transform;
 }
 
 /* ─── SUB-BUILDINGS SECTION ───────────────────────────────────── */
 .sub-buildings {
   margin-top: 100vh;        /* push it just below the hero */
   width: 100vw;
-  height: 100vh;
-  background: #0f0f32;
+  height: 400vh;
+  background: rgb(16,18,59);
 }

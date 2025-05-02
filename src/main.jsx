@@ -7,3 +7,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>
 );
+
+if ('scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
