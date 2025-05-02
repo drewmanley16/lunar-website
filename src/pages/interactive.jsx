@@ -1,50 +1,54 @@
-import React, { useEffect, useRef } from "react";
 import "./interactive.css";
-import albumArt from "/src/images/blue-can.png";
+import React from "react";
+import albumArt from "../images/blue-can.png";
+import ShootingStars from "../components/stars";
 
-export default function Lofi() {
-  const audioRef = useRef(null);
-  const canvasRef = useRef(null);
-ß
-  useEffect(() => {
-    const audio = audioRef.current;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+export default function LofiPage() {
+  // Random background stars
+  const generateStars = (count = 80) => {
+    return Array.from({ length: count }, (_, i) => {
+      const top = Math.random() * 100;
+      const left = Math.random() * 100;
+      const size = Math.random() * 2 + 1;
+      const opacity = Math.random() * 0.5 + 0.2;
 
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const analyser = audioCtx.createAnalyser();
-    const source = audioCtx.createMediaElementSource(audio);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
-
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
-
-    function animate() {
-      analyser.getByteFrequencyData(dataArray);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < bufferLength; i++) {
-        const barHeight = dataArray[i] / 2;
-        ctx.fillStyle = `rgba(255,255,255,0.5)`;
-        ctx.fillRect(i * 3, canvas.height - barHeight, 2, barHeight);
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  }, []);
+      return (
+        <div
+          key={`star-${i}`}
+          className="star"
+          style={{
+            top: `${top}%`,
+            left: `${left}%`,
+            width: `${size}px`,
+            height: `${size}px`,
+            opacity,
+          }}
+        />
+      );
+    });
+  };
 
   return (
     <div className="lofi-page">
-      <canvas ref={canvasRef} className="lofi-visualizer"></canvas>
-      <div className="lofi-info">
-        <img src={albumArt} alt="album" />
-        <h2>Dreamscape</h2>
-        <p>by LofiBoi</p>
+      {/* ✨ Background stars */}
+      <div className="stars">{generateStars()}</div>
+
+      {/* 🌠 Shooting stars from external component */}
+      <ShootingStars count={5} />
+
+      {/* 🎵 Main lofi content */}
+      <div className="lofi-container">
+        <img src={albumArt} alt="Album Art" className="album-art" />
+        <h2 className="track-title">Dreamscape</h2>
+        <p className="artist-name">by LofiBoi</p>
+        <audio
+          className="audio-player"
+          controls
+          autoPlay
+          loop
+          src="/placeholder.mp3"
+        />
       </div>
-      <audio ref={audioRef} controls autoPlay loop src="/placeholder.mp3"></audio>
     </div>
   );
 }

@@ -1,44 +1,173 @@
+/* PAGE CONTAINER */
 .lofi-page {
   position: relative;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #0a0a23 0%, #000 100%);
   overflow: hidden;
-  background: linear-gradient(to bottom, #0a0a23, #1a1a2e);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  color: white;
+  align-items: center;
   font-family: "DM Serif Display", serif;
+  color: white;
 }
 
-.lofi-visualizer {
+/* SHOOTING STAR EFFECT */
+.lofi-page::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* Lower than everything else */
-  pointer-events: none;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(white, transparent);
+  top: -100px;
+  left: 50%;
+  animation: shooting 3s ease-in-out infinite;
+  opacity: 0.4;
+  z-index: 0;
 }
 
+@keyframes twinkle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100px -100px;
+  }
+}
+
+@keyframes shooting {
+  0% {
+    transform: translate(-50%, 0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-500px, 500px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* MAIN CONTENT */
+.lofi-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ALBUM ART WITH PULSE */
 .album-art {
   width: 200px;
   height: 200px;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
   border-radius: 16px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  z-index: 2;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  margin-bottom: 1.5rem;
+  animation: pulse 3s ease-in-out infinite;
 }
 
-.lofi-info {
-  z-index: 2;
-  text-align: center;
-  margin-top: 1rem;
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  }
 }
 
-audio {
-  margin-top: 2rem;
-  z-index: 2;
+/* TRACK INFO */
+.track-title {
+  font-size: 2.25rem;
+  margin: 0.5rem 0 0.25rem;
+  letter-spacing: 1px;
+}
+
+.artist-name {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+/* AUDIO PLAYER */
+.audio-player {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  filter: brightness(0.9);
+  transition: all 0.3s ease;
+}
+
+.audio-player:focus {
+  outline: none;
+  transform: scale(1.02);
+}
+/* Random background stars */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+/* Shooting stars */
+.shooting-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(white, transparent);
+  transform: rotate(45deg);
+  opacity: 0;
+  animation: shoot 3s ease-in-out infinite;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(45deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-800px, 800px) rotate(45deg);
+    opacity: 0;
+  }
 }
