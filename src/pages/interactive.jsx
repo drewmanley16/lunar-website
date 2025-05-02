@@ -2,53 +2,36 @@ import "./interactive.css";
 import React from "react";
 import albumArt from "../images/blue-can.png";
 import ShootingStars from "../components/stars";
+import Footer from "../components/footer";
+
 
 export default function LofiPage() {
-  // Random background stars
-  const generateStars = (count = 80) => {
-    return Array.from({ length: count }, (_, i) => {
-      const top = Math.random() * 100;
-      const left = Math.random() * 100;
-      const size = Math.random() * 2 + 1;
-      const opacity = Math.random() * 0.5 + 0.2;
-
-      return (
-        <div
-          key={`star-${i}`}
-          className="star"
-          style={{
-            top: `${top}%`,
-            left: `${left}%`,
-            width: `${size}px`,
-            height: `${size}px`,
-            opacity,
-          }}
-        />
-      );
-    });
-  };
-
   return (
     <div className="lofi-page">
-      {/* ✨ Background stars */}
-      <div className="stars">{generateStars()}</div>
+      <ShootingStars count={4} />
 
-      {/* 🌠 Shooting stars from external component */}
-      <ShootingStars count={5} />
+      <div className="lofi-glass-card">
+        <img src={albumArt} alt="Album" className="glass-album-art" />
 
-      {/* 🎵 Main lofi content */}
-      <div className="lofi-container">
-        <img src={albumArt} alt="Album Art" className="album-art" />
-        <h2 className="track-title">Dreamscape</h2>
-        <p className="artist-name">by LofiBoi</p>
-        <audio
-          className="audio-player"
-          controls
-          autoPlay
-          loop
-          src="/placeholder.mp3"
-        />
+        <div className="glass-text">
+          <h2 className="track-title">Dreamscape</h2>
+          <p className="artist-name">by LofiBoi</p>
+        </div>
+        <div className="glass-footer">
+          <span>0:00</span>
+          <div className="glass-progress">
+            <div className="glass-progress-fill" style={{ width: "20%" }}></div>
+          </div>
+          <span>1:30</span>
+        </div>
+        <div className="glass-audio-bar">
+          <button className="glass-button">⏮</button>
+          <button className="glass-button play">⏯</button>
+          <button className="glass-button">⏭</button>
+        </div>
+
       </div>
+      <Footer />
     </div>
   );
 }
