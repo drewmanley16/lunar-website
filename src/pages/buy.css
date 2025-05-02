@@ -58,7 +58,8 @@
 
 .buy-now-form button {
   flex: 1 1 100%;
-  color: #0a0a23;
+  background-color: #cccccc;
+  color: black;
   font-weight: bold;
   padding: 0.8rem;
   border: none;
