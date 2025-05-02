@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './home.css';
 import buildingsImage from "./buildings1.png";
+import Footer from "../components/footer";
 
 function Home() {
   useEffect(() => {
@@ -64,6 +65,7 @@ function Home() {
       />
       <div className="sub-buildings">
       </div>
+      <Footer />
     </div>
   );
 }
