@@ -32,7 +32,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%; /* ensure html fills the viewport */
-  background: linear-gradient(180deg, #611f0f, #cf6929) no-repeat fixed;
+  background: linear-gradient(180deg, #3c053d, #541e61) no-repeat fixed;
   background-size: cover; /* cover the entire area */
 }
 
