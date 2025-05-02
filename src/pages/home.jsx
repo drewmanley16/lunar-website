@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import './home.css';
-import buildingsImage from "../images/buildings1.png";
+import baseBuildings from "../images/buildings1.png"; // your constant building background
+import buildingLights from "../images/building-lights-transparent.png"; // new overlay image
 import Footer from "../components/footer";
+import ShootingStars from "../components/stars";
 
 function Home() {
   useEffect(() => {
@@ -18,7 +20,6 @@ function Home() {
 
       const moonRect = moon.getBoundingClientRect();
       const buildingRect = buildings.getBoundingClientRect();
-
       const parallaxY = initialMoonTop + scrollY * 0.2;
 
       if (moonRect.bottom >= buildingRect.bottom) {
@@ -47,12 +48,25 @@ function Home() {
         <h1>LUNAR</h1>
         <h2>DRINK SLEEP</h2>
       </div>
-      <img
-        src={buildingsImage}
-        alt="buildings"
-        className="buildings"
-        id="buildings"
-      />
+      <div className="buildings-container">
+        {/* Base building image stays constant */}
+        <img
+          src={baseBuildings}
+          alt="buildings base"
+          className="buildings-base"
+          id="buildings"
+        />
+        {/* Overlay for lights */}
+        <img
+          src={buildingLights}
+          alt="building lights"
+          className="buildings-overlay"
+          id="lights"
+        />
+      </div>
+      <div className="shooting-stars-container">
+        <ShootingStars count={6} />
+      </div>
       <div className="sub-buildings">
       </div>
       <Footer />

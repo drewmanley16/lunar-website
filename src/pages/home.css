@@ -86,21 +86,81 @@
 }
 
 /* ─── BUILDINGS AT THE BOTTOM ─────────────────────────────────── */
-.buildings {
+.buildings-container {
   position: absolute;
+  top: -20vh; /* Adjust as needed to line up with your scene */
   left: 0;
-  bottom: 400vh;
   width: 100vw;
-  height: auto;
-  display: block;
   z-index: 3;
-  will-change: transform;
+}
+
+/* Base building: static, occupying full container */
+.buildings-base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* Overlay images (for lights) aligned exactly over the base */
+.buildings-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: opacity 1s ease-in-out;
+  /* Set initial opacity as needed */
+  opacity: 1;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+/* Fade-out animation */
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 /* ─── SUB-BUILDINGS SECTION ───────────────────────────────────── */
 .sub-buildings {
-  margin-top: 100vh;        /* push it just below the hero */
+  margin-top: 100vh;   /* Push it just below the hero section */
   width: 100vw;
   height: 400vh;
   background: rgb(16,18,59);
+}
+
+/* ─── SHOOTING STARS ──────────────────────────────────────────── */
+.shooting-stars-container {
+  position: absolute;
+  top: calc(20vh); /* Adjust to position it above sub-buildings */
+  left: 0;
+  width: 100%;
+  height: 50vh; /* Constrain the height to the area above sub-buildings */
+  z-index: 2; /* Ensure it appears above the background but below other elements */
+  pointer-events: none; /* Prevent interaction with the stars */
+  overflow: hidden;
+}
+
+.shooting-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
