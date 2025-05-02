@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './home.css';
-import buildingsImage from "./buildings1.png";
+import buildingsImage from "../images/buildings1.png";
 import Footer from "../components/footer";
 
 function Home() {
