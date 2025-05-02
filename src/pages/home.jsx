@@ -5,7 +5,6 @@ import Footer from "../components/footer";
 
 function Home() {
   useEffect(() => {
-    // grab the moon element and read its initial top from CSS once
     const moon = document.getElementById("moon");
     const initialMoonTop = moon
       ? parseFloat(window.getComputedStyle(moon).top)
@@ -16,33 +15,24 @@ function Home() {
       const buildings = document.getElementById("buildings");
       const subBuildings = document.querySelector(".sub-buildings");
       if (!moon || !buildings || !subBuildings) return;
-    
-      // Compute their viewport‐relative boxes
+
       const moonRect = moon.getBoundingClientRect();
       const buildingRect = buildings.getBoundingClientRect();
-    
-      // Normal parallax position for the moon:
+
       const parallaxY = initialMoonTop + scrollY * 0.2;
-    
+
       if (moonRect.bottom >= buildingRect.bottom) {
-        // Pin the moon at the bottom of the buildings
         const lockedTop = buildingRect.bottom - moonRect.height;
         moon.style.top = `${lockedTop}px`;
-    
-        // Hide the moon completely if it overlaps with the buildings
         moon.style.opacity = "0";
       } else {
-        // Otherwise, keep the usual parallax motion and make it visible
         moon.style.top = `${parallaxY}px`;
         moon.style.opacity = "1";
       }
-    
-      // Existing building parallax:
+
       const speed = 0.3;
       const offset = scrollY * speed;
       buildings.style.transform = `translateY(${offset}px)`;
-    
-      // Apply the same parallax effect to sub-buildings
       subBuildings.style.transform = `translateY(${offset}px)`;
     };
 
