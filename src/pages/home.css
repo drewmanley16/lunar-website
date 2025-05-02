@@ -1,70 +1,99 @@
-body {
+/* ─── GLOBAL RESET + BASE (was in index.css) ───────────────────── */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   display: flex;
   flex-direction: column;
   transition: background 0.4s ease-out;
+  height: 300vh;
 }
 
+/* ─── HOME WRAPPER BACKGROUND ──────────────────────────────────── */
 .home {
-  background-image: url("~./src/images/homepage.png");
+  background-image: url("./images/homepage.png"); /* adjust path as needed */
   background-size: cover;
   background-position: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.title-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: 15vh;
-  z-index: 2;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
+/* ─── MOON (styled DIV) ────────────────────────────────────────── */
 .moon {
   position: fixed;
-  height: 18.5vw;
+  top: 5vh;            /* initial vertical offset */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10vh;    /* extra push if needed */
   width: 18.5vw;
+  height: 18.5vw;
+  border-radius: 50%;
   background: radial-gradient(
     circle at 30% 30%,
     rgb(211, 211, 211),
     rgb(200, 200, 200)
   );
-  border-radius: 50%;
-  margin-top: 10vh;
-  top: 5vh;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
   box-shadow: 0 0 40px #fff;
-  transition: top 0.2s ease-out, background 0.4s ease-out;
+  z-index: 2;
+  transition: top 0.2s ease-out,
+              background 0.4s ease-out;
 }
 
-h1 {
-  font-size: 13vw;
+/* ─── TITLE STACK ──────────────────────────────────────────────── */
+.title-stack {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+}
+
+.title-stack h1 {
+  font-size: 16vw;
   color: rgb(186, 183, 189);
-  font-family: system-ui, sans-serif;
+  font-family:
+    system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
   letter-spacing: 0.01em;
   margin: 0;
 }
 
-h2 {
+.title-stack h2 {
   font-size: 2.5vw;
   color: rgb(142, 133, 147);
-  font-family: system-ui, sans-serif;
+  font-family:
+    system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
   letter-spacing: 0.01em;
   margin: 0;
 }
 
+/* ─── BUILDINGS AT THE BOTTOM ─────────────────────────────────── */
 .buildings {
-  width: 100vw; /* Full viewport width */
-  display: block; /* Prevent inline spacing */
-  position: absolute; /* Optional: if you want it behind the text */
-  bottom: 0;
+  position: absolute;
   left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: auto;
+  display: block;
   z-index: 1;
+}
+
+/* ─── SUB-BUILDINGS SECTION ───────────────────────────────────── */
+.sub-buildings {
+  width: 100vw;
+  height: 100vh;
+  background: #0f0f32;
 }
