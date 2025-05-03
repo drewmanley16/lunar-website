@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './home.css';
 import baseBuildings from "../images/buildings1.png";
 import buildingLights from "../images/building-lights-transparent.png";
+import lunarLogo from "../images/lunarlogofinal.png"; // Import the logo image
 import Footer from "../components/footer";
 import ShootingStars from "../components/stars";
-import SmallStars from "../components/small-stars";  // Import your component
+import SmallStars from "../components/small-stars";
+
 
 function Home() {
   const [titleHidden, setTitleHidden] = useState(false);
@@ -82,8 +84,8 @@ function Home() {
     <div className="home">
       <div className="moon" id="moon" />
       <div className={`title-stack ${titleHidden ? 'title-stack-hidden' : ''}`}>
-        <h1>LUNAR</h1>
-        <h2>Drink Sleep.</h2>
+        <img src={lunarLogo} alt="Lunar Logo" className="logo-img" />
+        <h1>Drink Sleep.</h1>
       </div>
       <div className="buildings-container">
         {/* Base building image remains constant */}

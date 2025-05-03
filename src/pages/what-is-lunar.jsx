@@ -1,6 +1,6 @@
 import React from 'react';
 import './what-is-lunar.css';
-import background from '../images/backgroundimage.png';
+import background from '../images/2dskylinebackground.png';
 
 export default function WhatIsLunar() {
   return (
