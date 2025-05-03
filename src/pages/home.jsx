@@ -16,6 +16,7 @@ function Home() {
       const scrollY = window.scrollY;
       const buildings = document.getElementById("buildings");
       const subBuildings = document.querySelector(".sub-buildings");
+      const lights = document.getElementById("lights")
       if (!moon || !buildings || !subBuildings) return;
 
       const moonRect = moon.getBoundingClientRect();
@@ -34,6 +35,7 @@ function Home() {
       const speed = 0.3;
       const offset = scrollY * speed;
       buildings.style.transform = `translateY(${offset}px)`;
+      lights.style.transform = `translateY(${offset})`;
       subBuildings.style.transform = `translateY(${offset}px)`;
     };
 
@@ -65,7 +67,7 @@ function Home() {
         />
       </div>
       <div className="shooting-stars-container">
-        <ShootingStars count={6} />
+        <ShootingStars count={8} />
       </div>
       <div className="sub-buildings">
       </div>
