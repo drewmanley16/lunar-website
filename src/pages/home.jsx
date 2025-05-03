@@ -4,6 +4,7 @@ import baseBuildings from "../images/buildings1.png";
 import buildingLights from "../images/building-lights-transparent.png";
 import Footer from "../components/footer";
 import ShootingStars from "../components/stars";
+import SmallStars from "../components/small-stars";  // Import your component
 
 function Home() {
   const [titleHidden, setTitleHidden] = useState(false);
@@ -92,7 +93,7 @@ function Home() {
           className="buildings-base"
           id="buildings"
         />
-        {/* Overlay for lights */}
+
         <img
           src={buildingLights}
           alt="building lights"
@@ -103,6 +104,11 @@ function Home() {
       <div className="shooting-stars-container">
         <ShootingStars count={8} />
       </div>
+      
+      <div className="small-stars-container">
+        <SmallStars count={25} popSpeed={6} />
+      </div>
+
       <div className="sub-buildings"></div>
       <Footer />
     </div>
