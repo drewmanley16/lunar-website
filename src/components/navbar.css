@@ -4,7 +4,7 @@
   justify-content: center;
   padding: 1rem 2rem;
   position: fixed;
-  top: 5px; /* slight space from the top */
+  top: 10px; /* slight space from the top */
   left: 50%; /* center horizontally */
   transform: translateX(-50%);
   background-color: #03081700;

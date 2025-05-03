@@ -1,4 +1,4 @@
-/* ─── GLOBAL RESET + BASE (was in index.css) ───────────────────── */
+/* ─── GLOBAL RESET & BASE ────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -6,33 +6,27 @@
 }
 
 .home {
-  background-color: linear-gradient;
-  background-size: cover;
-  background-position: center;
   position: relative;
   width: 100vw;
-  height: 500vh;            /* ← changed from 300vh */
-  overflow: visible;        /* allow the next section to scroll into view */
+  /* Height set high for scroll-based effects */
+  height: 500vh;
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  transition: background 0.4s ease-out;
-  background: radial-gradient(
-    circle 50vw at 50% 10%, /* 30% of the container size */
-    rgb(54, 18, 127),
-    rgb(8, 9, 51)
-  );
+  /* Background using a radial gradient */
+  background: radial-gradient(circle 50vw at 50% 10%, rgb(54, 18, 127), rgb(8, 9, 51));
   background-size: cover;
+  background-position: center;
+  transition: background 0.4s ease-out;
 }
 
-
-
-/* ─── MOON (styled DIV) ────────────────────────────────────────── */
+/* ─── MOON ───────────────────────────────────────────────────── */
 .moon {
   position: fixed;
-  top: 5vh;            /* initial vertical offset */
+  top: 5vh;                /* initial vertical offset */
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 10vh;    /* extra push if needed */
+  margin-top: 10vh;        /* extra push if needed */
   width: 18.5vw;
   height: 18.5vw;
   border-radius: 50%;
@@ -43,49 +37,42 @@
   );
   box-shadow: 0 0 40px #fff;
   z-index: 0;
-  transition: top 0.2s ease-out,
-  background 0.4s ease-out;
+  transition: top 0.2s ease-out, background 0.4s ease-out;
   will-change: transform;
 }
 
-
-/* ─── TITLE STACK ──────────────────────────────────────────────── */
+/* ─── TITLE STACK ───────────────────────────────────────────── */
 .title-stack {
   position: absolute;
   top: 50vh;
   left: 50vw;
-  transform: translate(-50%, -50%);
-  margin-top: 15vh;
+  /* Center it exactly */
+  transform: translate(-50%, -10%);
+  /* Removed margin-top to avoid conflicts with animations */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   z-index: 4;
+  /* Fade-up (entrance) animation; adjust keyframes if needed */
+  animation: fadeUpIn 0.6s ease-in forwards;
 }
 
 .title-stack h1 {
   font-size: 16vw;
   color: rgb(186, 183, 189);
-  font-family:
-    system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.05em;
   margin: 0;
 }
 
 .title-stack h2 {
   font-size: 2.5vw;
   color: rgb(142, 133, 147);
-  font-family:
-    system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
   letter-spacing: 0.01em;
   margin: 0;
 }
 
-/* ─── BUILDINGS AT THE BOTTOM ─────────────────────────────────── */
+/* ─── BUILDINGS ───────────────────────────────────────────────── */
 .buildings-container {
   position: absolute;
   top: -20vh; /* Adjust as needed to line up with your scene */
@@ -94,7 +81,6 @@
   z-index: 3;
 }
 
-/* Base building: static, occupying full container */
 .buildings-base {
   position: absolute;
   top: 0;
@@ -103,7 +89,6 @@
   height: auto;
 }
 
-/* Overlay images (for lights) aligned exactly over the base */
 .buildings-overlay {
   position: absolute;
   top: 0;
@@ -111,17 +96,17 @@
   width: 100%;
   height: auto;
   transition: opacity 1s ease-in-out;
-  /* Set initial opacity as needed */
   opacity: 1;
 }
 
-/* Fade-in animation */
+/* ─── FADE ANIMATIONS ──────────────────────────────────────────── */
+/* Use these classes with JS if you need to trigger fades manually */
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s forwards;
 }
 
-/* Fade-out animation */
 .fade-out {
   opacity: 1;
   animation: fadeOut 1s forwards;
@@ -137,23 +122,77 @@
   to { opacity: 0; }
 }
 
+/* Entrance / Exit Keyframes for Title, Navbar, etc. */
+/* Adjust these keyframes to suit your desired transform effects */
+
+@keyframes fadeDownIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50px) rotateX(-15deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) rotateX(0);
+  }
+}
+
+@keyframes fadeDownOut {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50px) rotateX(-15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0) rotateX(0);
+  }
+}
+
+@keyframes fadeUpIn {
+  0% {
+    opacity: 0;
+    /* Start a little lower to animate upward */
+    transform: translate(-50%, -5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -10%);
+  }
+}
+
+@keyframes fadeUpOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -10%);
+  }
+  100% {
+    opacity: 0;
+    /* Move upward smoothly */
+    transform: translate(-50%, -30%);
+  }
+}
+
+/* Hidden state for title stack (triggered via JS) */
+.title-stack-hidden {
+  animation: fadeUpOut 0.3s ease-out forwards;
+}
+
 /* ─── SUB-BUILDINGS SECTION ───────────────────────────────────── */
 .sub-buildings {
-  margin-top: 100vh;   /* Push it just below the hero section */
+  margin-top: 100vh;   /* Push the section below the hero */
   width: 100vw;
   height: 400vh;
-  background: rgb(16,18,59);
+  background: rgb(16, 18, 59);
 }
 
 /* ─── SHOOTING STARS ──────────────────────────────────────────── */
 .shooting-stars-container {
   position: absolute;
-  top: calc(20vh); /* Adjust to position it above sub-buildings */
+  top: 20vh;  /* Positioned above sub-buildings */
   left: 0;
   width: 100%;
-  height: 50vh; /* Constrain the height to the area above sub-buildings */
-  z-index: 2; /* Ensure it appears above the background but below other elements */
-  pointer-events: none; /* Prevent interaction with the stars */
+  height: 50vh;  /* Constrain height */
+  z-index: 2;
+  pointer-events: none;
   overflow: hidden;
 }
 
