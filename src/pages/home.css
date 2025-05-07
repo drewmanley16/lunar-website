@@ -226,26 +226,6 @@
   height: 100%;
 }
 
-/* Inline light overlay styles */
-.light-overlays {
-  position: fixed;
-  top: 5vh;
-  left: 0vw;
-  width: 80%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 30;
-}
-  
-.light-overlay {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 1;
-  transform: translateY(-180%); /* adjust to move the overlay higher */
-  transition: opacity 1s ease-in-out;
-}
-
 /* ─── LOGO IMAGE ──────────────────────────────────────────────── */
 .logo-img {
   width: 50vw; /* adjust the width as needed */

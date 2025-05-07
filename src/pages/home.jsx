@@ -2,31 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './home.css';
 import baseBuildings from "../images/buildings1.png";
 import lunarLogo from "../images/lunarlogofinal.png";
-import light1 from "../images/lights_overlay_1.png";
-import light2 from "../images/lights_overlay_2.png";
-import light3 from "../images/lights_overlay_3.png";
-import light4 from "../images/lights_overlay_4.png";
 import Footer from "../components/footer";
 import ShootingStars from "../components/stars";
 import SmallStars from "../components/small-stars";
 
 function Home() {
   const [titleHidden, setTitleHidden] = useState(false);
-  const overlays = [light1, light2, light3, light4];
-  const [currentOverlay, setCurrentOverlay] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  useEffect(() => {
-    // Cycle overlays every 5 seconds with fade effects
-    const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setCurrentOverlay((prev) => (prev + 1) % overlays.length);
-        setFade(true);
-      }, 1000); // match the CSS transition duration
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [overlays.length]);
 
   useEffect(() => {
     const moon = document.getElementById("moon");
@@ -91,15 +72,6 @@ function Home() {
           alt="buildings base"
           className="buildings-base"
           id="buildings"
-        />
-      </div>
-      
-      {/* Inline light overlay */}
-      <div className="light-overlays">
-        <img
-          src={overlays[currentOverlay]}
-          alt={`Light Overlay ${currentOverlay + 1}`}
-          className={`light-overlay ${fade ? 'fade-in' : 'fade-out'}`}
         />
       </div>
       
