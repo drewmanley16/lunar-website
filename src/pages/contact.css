@@ -56,12 +56,18 @@
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.5);
     padding: 30px;
     border-radius: 4px;
     width: 90%;
     max-width: 600px;
     text-align: center;
+}
+
+.container h1 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
 }
 
 h1 {

@@ -42,12 +42,33 @@ function Contact() {
         <div className="container">
           <h1>Contact Us</h1>
           <div className="subtitle">We would love to hear from you!</div>
-          <form className="contact-form">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+
+          <form
+            className="buy-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Thanks! We'll reach out soon 🌙");
+            }}
+          >
+
+          <label>
+            Full Name
+            <input type="text" name="name" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Message
+            <textarea name="order" rows="3"/>
+          </label>
+
+          <button type="submit">Submit</button>
           </form>
+
         </div>
       </div>
       <Footer />
