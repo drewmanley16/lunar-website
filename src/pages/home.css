@@ -9,7 +9,7 @@
   position: relative;
   width: 100vw;
   /* Height set high for scroll-based effects */
-  height: 500vh;
+  height: 300vh;
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -183,7 +183,7 @@
   margin-top: 100vh;   /* Push the section below the hero */
   width: 100vw;
   height: 400vh;
-  background: rgb(16, 18, 59);
+  background: linear-gradient(rgb(16, 18, 59), rgb(0, 0, 0));
   z-index: 10;
 }
 
