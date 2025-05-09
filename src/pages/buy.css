@@ -1,77 +1,103 @@
-.buy-now-page {
-  background: url("../images/lunar-skyline2.png") no-repeat center center fixed;
-  background-size: cover;
+.buy-page {
+  background: radial-gradient(
+    circle 50vw at 50% 10%,
+    rgb(49, 52, 112),
+    rgb(5, 5, 35)
+  );
   min-height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
+  padding: 120px 1rem 4rem;
+  font-family: "League Spartan", sans-serif;
+  color: white;
   display: flex;
-  flex-direction: column; /* important to make padding work */
+  flex-direction: column;
   align-items: center;
 }
 
-.buy-now-container {
-  padding: 120px 2rem 2rem 2rem; /* Top padding = navbar height + extra space */
-  width: 100%;
-  max-width: 1000px;
-  color: white;
-  font-family: "PT Serif", serif;
+.buy-header {
+  font-family: "League Spartan", sans-serif;
   text-align: center;
-  box-sizing: border-box;
-}
-
-.buy-now-container h1 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.buy-now-container p {
-  font-size: 1.2rem;
+  max-width: 600px;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
-.buy-now-form {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+.buy-header h1 {
+  font-family: "League Spartan", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.buy-header p {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.buy-form {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+  border-radius: 16px;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.buy-now-form input {
-  flex: 1 1 30%;
-  min-width: 200px;
-  padding: 0.8rem;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  max-width: 600px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
   color: white;
 }
 
-.buy-now-form textarea {
-  flex: 1 1 100%;
-  min-width: 200px;
-  padding: 0.8rem;
+.buy-form label {
+  font-family: "League Spartan", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.buy-form input,
+.buy-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
   color: white;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border 0.3s ease, background 0.3s ease;
 }
 
-.buy-now-form input::placeholder,
-.buy-now-form textarea::placeholder {
-  color: #cccccc;
+.buy-form input::placeholder,
+.buy-form textarea::placeholder {
+  color: #bbb;
 }
 
-.buy-now-form button {
-  flex: 1 1 100%;
-  background-color: #cccccc;
+.buy-form input:focus,
+.buy-form textarea:focus {
+  outline: none;
+  border: 1px solid #8ab4f8;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Button style: modern pill gradient */
+.buy-form button {
+  background: white;
   color: black;
   font-weight: bold;
-  padding: 0.8rem;
+  padding: 1rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-family: "League Spartan", sans-serif;
+}
+
+.buy-form button:hover {
+  background: linear-gradient(to right, #ff9d3b, #a6c9ff);
+  transform: scale(1.02);
 }
