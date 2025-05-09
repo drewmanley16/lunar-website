@@ -1,21 +1,11 @@
-/*ts needs fixing yo
-
-
-
 import React from 'react';
 import './about-us.css';
-/*
-import personDrinking from '../assets/person-drinking.png';
-import cansFlask from '../assets/cans-flask.png';
-import sketchPrototype from '../assets/sketch-prototype.png';
-import partyCans from '../assets/party-cans.png';
-import expansionBalloons from '../assets/expansion-balloons.png';
-*/
+
 export default function AboutUs() {
   return (
     <div className="timeline-container">
       <div className="header">
-        <img src={personDrinking} alt="Person drinking" className="top-image" />
+        <img src="" alt="Person drinking" className="top-image" />
         <h1>About US</h1>
       </div>
 
@@ -32,25 +22,25 @@ export default function AboutUs() {
         <div className="event left" style={{ top: '7%' }}>
           <h3>2023</h3>
           <p>Lunar is born from sleep deprived students</p>
-          <img src={cansFlask} alt="" />
+          <img src="" alt="" />
         </div>
 
         <div className="event right" style={{ top: '46%' }}>
           <h3>2024</h3>
           <p>First prototypes made</p>
-          <img src={sketchPrototype} alt="" />
+          <img src="" alt="" />
         </div>
 
         <div className="event left" style={{ top: '75%' }}>
           <h3>2024</h3>
           <p>Lunar launch party</p>
-          <img src={partyCans} alt="" />
+          <img src="" alt="" />
         </div>
 
         <div className="event right" style={{ top: '93%' }}>
           <h3>2025</h3>
           <p>Expanding to new campuses/partners etc</p>
-          <img src={expansionBalloons} alt="" />
+          <img src="" alt="" />
         </div>
       </div>
     </div>

@@ -45,7 +45,7 @@ export default function Navbar() {
         <li><Link to="/what-is-lunar">WHAT IS LUNAR</Link></li>
         <li><Link to="/buy">SHOP</Link></li>
         <li><Link to="/interactive">INTERACT</Link></li>
-        <li><Link to="/about-us">OUR STORY</Link></li>
+        <li><Link to="/about-us">ABOUT US</Link></li>
         <li><Link to="/contact">CONTACT</Link></li>
       </ul>
     </nav>
