@@ -5,93 +5,6 @@
   box-sizing: border-box;
 }
 
-.home {
-  position: relative;
-  width: 100vw;
-  /* Height set high for scroll-based effects */
-  height: 300vh;
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
-  /* Background using a radial gradient */
-  background: radial-gradient(circle 50vw at 50% 10%, rgb(49, 52, 112), rgb(5, 5, 35));
-  background-size: cover;
-  background-position: center;
-  transition: background 0.4s ease-out;
-}
-
-/* ─── MOON ───────────────────────────────────────────────────── */
-.moon {
-  position: fixed;
-  top: 5vh;                /* initial vertical offset */
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 10vh;        /* extra push if needed */
-  width: 18.5vw;
-  height: 18.5vw;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgb(238, 238, 238),
-    rgb(200, 200, 200)
-  );
-  box-shadow: 0 0 40px #fff;
-  z-index: 3;
-  transition: top 0.2s ease-out, background 0.4s ease-out;
-  will-change: transform;
-}
-
-/* ─── TITLE STACK ───────────────────────────────────────────── */
-.title-stack {
-  position: absolute;
-  top: 50vh;
-  left: 50vw;
-  /* Center it exactly */
-  transform: translate(-50%, -10%);
-  /* Removed margin-top to avoid conflicts with animations */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  z-index: 13;
-  /* Fade-up (entrance) animation; adjust keyframes if needed */
-  animation: fadeUpIn 0.6s ease-in forwards;
-}
-
-.title-stack h1 {
-  font-size: 3vw;
-  color: rgb(206, 198, 209);
-  letter-spacing: 0.01em;
-  margin: 0;
-  font-family: 'League Spartan', sans-serif;
-}
-
-/* ─── BUILDINGS ───────────────────────────────────────────────── */
-.buildings-container {
-  position: absolute;
-  top: -20vh; /* Adjust as needed to line up with your scene */
-  left: 0;
-  width: 100vw;
-  z-index: 11;
-}
-
-.buildings-base {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-}
-
-.buildings-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  transition: opacity 1s ease-in-out;
-  opacity: 1;
-}
 
 /* ─── FADE ANIMATIONS ──────────────────────────────────────────── */
 /* Use these classes with JS if you need to trigger fades manually */
@@ -178,13 +91,124 @@
   animation: fadeUpOut 0.3s ease-out forwards;
 }
 
+
+
+.home {
+  position: relative;
+  width: 100vw;
+  /* Height set high for scroll-based effects */
+  height: 200vh;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  /* Background using a radial gradient */
+  background: radial-gradient(circle 60vw at 50% 10%, rgb(49, 52, 112), rgb(5, 5, 35));
+  background-size: cover;
+  background-position: center;
+  transition: background 0.4s ease-out;
+}
+
+/* ─── MOON ───────────────────────────────────────────────────── */
+.moon {
+  position: fixed;
+  top: 5vh;                /* initial vertical offset */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10vh;        /* extra push if needed */
+  width: 18.5vw;
+  height: 18.5vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgb(238, 238, 238),
+    rgb(200, 200, 200)
+  );
+  box-shadow: 0 0 40px #fff;
+  z-index: 3;
+  transition: top 0.2s ease-out, background 0.4s ease-out;
+  will-change: transform;
+}
+
+/* ─── TITLE STACK ───────────────────────────────────────────── */
+.title-stack {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  /* Center it exactly */
+  transform: translate(-50%, -10%);
+  /* Removed margin-top to avoid conflicts with animations */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 13;
+  /* Fade-up (entrance) animation; adjust keyframes if needed */
+  animation: fadeUpIn 0.6s ease-in forwards;
+}
+
+.title-stack h1 {
+  font-size: 3vw;
+  color: rgb(206, 198, 209);
+  letter-spacing: 0.01em;
+  margin: 0;
+  font-family: 'League Spartan', sans-serif;
+}
+
+/* ─── BUILDINGS ───────────────────────────────────────────────── */
+.buildings-container {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;  /* adjust to your building graphic’s viewport height */
+  z-index: 11;
+  overflow: hidden;
+}
+
+.buildings-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(16,18,59,0) 0%,
+    rgba(16,18,59,1) 100%
+  );
+  pointer-events: none;
+}
+
+.buildings-base {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.buildings-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+}
+
+
 /* ─── SUB-BUILDINGS SECTION ───────────────────────────────────── */
 .sub-buildings {
-  margin-top: 100vh;   /* Push the section below the hero */
+  position: absolute;
+  top: 100vh;            /* push it below the hero */
+  left: 0;
   width: 100vw;
   height: 400vh;
-  background: linear-gradient(rgb(16, 18, 59), rgb(0, 0, 0));
+  background: rgb(16, 18, 59);
   z-index: 10;
+  /* remove margin-top; transforms now control vertical position */
 }
 
 /* ─── SHOOTING STARS ──────────────────────────────────────────── */
@@ -231,4 +255,66 @@
   width: 50vw; /* adjust the width as needed */
   height: auto; /* keeps the aspect ratio */
   opacity: 100%;
+}
+
+
+/* wrap your “what is” + “usage” */
+.content-sections {
+  width: 100%;
+  padding: 8vw 10vw;
+  background: #0f1140;     /* a darker backdrop to set it apart from the hero */
+  color: #dce0f0;
+  font-family: 'League Spartan', sans-serif;
+  margin-top: 25vh;
+}
+
+/* What is Lunar? */
+.what-is-lunar h2 {
+  font-size: 4vw;
+  margin-bottom: 1.5vw;
+}
+.what-is-lunar p {
+  font-size: 1.6vw;
+  line-height: 1.4;
+  margin-bottom: 1vw;
+}
+.what-is-lunar ul {
+  list-style: disc inside;
+  margin-left: 2vw;
+}
+.what-is-lunar ul li ul {
+  list-style: circle inside;
+  margin-top: 0.5vw;
+  margin-left: 1vw;
+}
+
+/* Proper Usage */
+.proper-usage {
+  margin-top: 6vw;
+}
+.proper-usage h2 {
+  font-size: 4vw;
+  margin-bottom: 1.5vw;
+}
+.proper-usage p {
+  font-size: 1.6vw;
+  line-height: 1.5;
+}
+.usage-steps {
+  margin: 2vw 0;
+  /* you can lay out your 4–5 step graphic as a flex grid here */
+  display: flex;
+  gap: 2vw;
+  /* placeholder boxes */
+}
+.usage-note {
+  font-size: 1.4vw;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* tweak Footer to sit nicely after content */
+footer {
+  margin-top: auto;
+  position-anchor: bottom;
 }
