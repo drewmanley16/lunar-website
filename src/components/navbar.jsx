@@ -42,7 +42,6 @@ export default function Navbar() {
       </div>
       <ul className={`navbar-links ${menuOpen ? 'active' : ''}`}>
         <li><Link to="/">HOME</Link></li>
-        <li><Link to="/what-is-lunar">WHAT IS LUNAR</Link></li>
         <li><Link to="/buy">SHOP</Link></li>
         <li><Link to="/interactive">INTERACT</Link></li>
         <li><Link to="/about-us">OUR STORY</Link></li>

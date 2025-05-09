@@ -4,6 +4,7 @@ import boardwalkBack from '../images/boardwalkback.png';
 import boardwalkFore from '../images/boardwalkfore.png';
 import ShootingStars from "../components/stars";
 import SmallStars from "../components/small-stars";
+import Footer from "../components/footer";
 
 function Contact() {
   return (
@@ -49,6 +50,7 @@ function Contact() {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
