@@ -1,6 +1,8 @@
-// AboutUs.jsx
+// src/pages/about-us.jsx
 import React, { useEffect, useRef } from 'react';
 import './about-us.css';
+import ShootingStars from '../components/stars';
+import SmallStars from '../components/small-stars';
 
 export default function AboutUs() {
   const pathRef = useRef(null);
@@ -14,6 +16,10 @@ export default function AboutUs() {
 
   return (
     <div className="timeline-container">
+      {/* Add the star components */}
+      <ShootingStars />
+      <SmallStars />
+
       <div className="header">
         <h1>LUNAR</h1>
         <h2>OUR STORY</h2>

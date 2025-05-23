@@ -62,3 +62,32 @@ html, body {
 .event3 { top: 35%; left: 75%; animation-delay: 1.9s; }
 .event4 { top: 55%; left: 22%; animation-delay: 2.2s; }
 .event5 { top: 80%; left: 60%; animation-delay: 2.5s; }
+
+/* Add these styles to the bottom of the file */
+
+/* ─── STARS ───────────────────────────────────────────────── */
+.shooting-stars, .small-stars-container {
+  position: fixed; /* Positions the stars relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicks to go "through" the stars */
+  overflow: hidden;
+}
+
+.shooting-stars {
+  z-index: 2; /* Sits on top of small stars */
+}
+
+.small-stars-container {
+  z-index: 1; /* Sits just above the background color */
+}
+
+/* Ensure the timeline content is in front of the stars */
+.timeline {
+  z-index: 3;
+}
+.header, .event {
+  z-index: 4;
+}
