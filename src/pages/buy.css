@@ -5,9 +5,113 @@
     rgb(5, 5, 35)
   );
   min-height: 100vh;
-  padding: 120px 1rem 4rem;
+  padding: 0;
   font-family: "League Spartan", sans-serif;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero-section h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #a6c9ff, #8ab4f8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.scroll-button {
+  background: white;
+  color: black;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "League Spartan", sans-serif;
+}
+
+.scroll-button:hover {
+  background: linear-gradient(to right, #a6c9ff, #8ab4f8);
+  transform: scale(1.05);
+}
+
+/* Products Section */
+.products-section {
+  width: 100%;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.products-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.product-card p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #a6c9ff;
+}
+
+/* Form Section */
+.form-section {
+  width: 100%;
+  padding: 6rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,4 +204,112 @@
 .buy-form button:hover {
   background: linear-gradient(to right, #ff9d3b, #a6c9ff);
   transform: scale(1.02);
+}
+
+/* FAQ Section */
+.faq-section {
+  width: 100%;
+  padding: 6rem 1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.faq-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.faq-question {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question h3 {
+  font-size: 1.3rem;
+  margin: 0;
+  color: #a6c9ff;
+  text-align: left;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  color: #a6c9ff;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 1.5rem;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.faq-item.open .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-answer p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Shooting Stars Container */
+.shooting-stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
 }
