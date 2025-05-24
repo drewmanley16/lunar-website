@@ -57,7 +57,7 @@ html, body {
 @keyframes fadeIn { to { opacity: 1; } }
 
 /* Delays for events should start after the line draws */
-.event1 { top: 12%; left: 65%; animation-delay: 1.3s; }
+.event1 { top: 8%; left: 69%; animation-delay: 1.3s; }
 .event2 { top: 18%; left: 35%; animation-delay: 1.6s; }
 .event3 { top: 35%; left: 75%; animation-delay: 1.9s; }
 .event4 { top: 55%; left: 22%; animation-delay: 2.2s; }
