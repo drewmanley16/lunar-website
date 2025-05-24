@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css";
+import { FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -30,13 +31,13 @@ export default function Footer() {
           <h3>Connect</h3>
           <div className="social-links">
             <a href="https://github.com" target="_blank" rel="noreferrer">
-              <img src="/github-logo.png" alt="GitHub" />
+              <FaGithub />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noreferrer">
-              <img src="/twitter-logo.png" alt="Twitter" />
+              <FaTwitter />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
-              <img src="/instagram-logo.png" alt="Instagram" />
+              <FaInstagram />
             </a>
           </div>
         </div>
