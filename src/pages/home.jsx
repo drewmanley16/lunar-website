@@ -3,9 +3,15 @@ import React, { useState, useEffect } from 'react';
 import './home.css';
 import baseBuildings from "../images/buildings1.png";
 import lunarLogo from "../images/lunarlogofinal.png";
-import Footer from "../components/footer";
 import ShootingStars from "../components/stars";
 import SmallStars from "../components/small-stars";
+import blueCan from "../images/blue-can.png";
+import orangeCan from "../images/orange-can.png";
+const melatoninInfo = "Supports your natural sleep cycle and helps you fall asleep faster, so you wake up feeling refreshed and restored";
+const magnesiumInfo = "Calms your body and mind, eases stress, and promotes deep, restful sleep for total overnight recovery";
+const ltheanineInfo = "Encourages relaxation and tranquility, reduces stress, and helps you unwind for a peaceful night’s sleep";
+const lunarInfo = "Melatonin is a powerful supplement, and proper usage can be extremely effective at giving you fast, deep, and full sleep. Follow along here to learn about best ways to get more sleep";
+
 
 function Home() {
   const [titleHidden, setTitleHidden] = useState(false);
@@ -26,7 +32,7 @@ function Home() {
       // Parallax for moon
       const moonRect = moon.getBoundingClientRect();
       const buildingRect = buildings.getBoundingClientRect();
-      const parallaxY = initialMoonTop + scrollY * 0.2;
+      const parallaxY = initialMoonTop + scrollY * 0.5;
       if (moonRect.bottom >= buildingRect.bottom) {
         const lockedTop = buildingRect.bottom - moonRect.height;
         moon.style.top = `${lockedTop}px`;
@@ -87,52 +93,55 @@ function Home() {
 
       {/* Underneath section for content */}
       <div className="sub-buildings">
-        <main className="content-sections">
-          <section className="what-is-lunar">
-            <h2>What is Lunar?</h2>
-            <p>
-              Lunar is one of the first melatonin products aimed at being part of your  
-              sleeping time with a canned drink.
-            </p>
-            <ul>
-              <li>
-                Lo-fi aesthetic, partner with local artists — check{' '}
-                <a href="/interactive">Interactive</a>
-              </li>
-              <li>
-                Our active ingredients:
-                <ul>
-                  <li>Melatonin: {/* your copy here */}</li>
-                  <li>Magnesium: {/* your copy here */}</li>
-                  <li>L-Theanine: {/* your copy here */}</li>
-                </ul>
-              </li>
-              <li>
-                “Hear the story of how two Oregon locals invented Lunar{' '}
-                <a href="/about">here</a>”
-              </li>
-            </ul>
-          </section>
 
-          <section className="proper-usage">
-            <h2>Proper Usage</h2>
-            <p>
-              Melatonin is a powerful supplement, and proper usage can be extremely  
-              effective at giving you fast, deep, and full sleep. Follow along here  
-              to learn about best ways to get more sleep:
-            </p>
-            <div className="usage-steps">
-              {/* graphic or markup */}
+        <div className="cols1">
+          <div className="whats-in-it">What's in Lunar?</div>
+          <div className="lunar-can">
+            <img src={blueCan} alt="blue-can" className="glow" />
+          </div>
+        </div>
+
+        <div className="cols2">
+
+
+          <div className= "col1">
+            <h2 className="ingredient-title">MELATONIN</h2>
+            <div className="melatoninInfo">{melatoninInfo}</div>
+          </div>
+          
+
+          <div className= "col2">
+            <h2 className="ingredient-title">MAGNESIUM</h2>
+            <div className="melatoninInfo">{magnesiumInfo}</div>
+          </div>
+
+          <div className= "col3">
+            <h2 className="ingredient-title">L-THEANINE</h2>
+          <div className="melatoninInfo">{ltheanineInfo}</div>
+          </div>
+
+        </div>
+
+
+        <div className="cols3">
+
+          <div className="col4">
+            <div className="orange-can">
+              <img src={orangeCan} alt="orange-can" />
             </div>
-            <p className="usage-note">
-              With this, feel free to get creative for the visuals. I’ll come back  
-              later with the exact wording and maybe a different graphic format,  
-              but think about ways that would be best to showcase a 4-5 step “tutorial.”
-            </p>
-          </section>
-        </main>
-      </div>
-      <Footer />
+            <div className="how-take-it">How do I take it?</div>
+        </div>
+
+        </div>
+
+          <div className= "cols4">
+            <div className="lunar-how-title">Proper Usage</div>
+            <div className= "lunarInfo">{lunarInfo}</div>
+          </div>
+
+
+        </div>
+      
     </div>
   );
 }

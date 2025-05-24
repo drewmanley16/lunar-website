@@ -97,12 +97,12 @@
   position: relative;
   width: 100vw;
   /* Height set high for scroll-based effects */
-  height: 200vh;
-  overflow: visible;
+  height: 1000vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   /* Background using a radial gradient */
-  background: radial-gradient(circle 60vw at 50% 10%, rgb(49, 52, 112), rgb(5, 5, 35));
+  background: radial-gradient(circle 50vw at 50% 10%, rgb(49, 52, 112), rgb(5, 5, 35));
   background-size: cover;
   background-position: center;
   transition: background 0.4s ease-out;
@@ -205,10 +205,248 @@
   top: 100vh;            /* push it below the hero */
   left: 0;
   width: 100vw;
-  height: 400vh;
-  background: rgb(16, 18, 59);
+  height: 900vh;
+  background: url(/src/images/home-sub1.png);
+  background-repeat: repeat-y;
+  background-size: 100% auto;
   z-index: 10;
   /* remove margin-top; transforms now control vertical position */
+}
+
+.cols1 {
+  padding-top:250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; /* Adjust for spacing between title and can */
+  margin-top: 100px; /* Match .cols2/.cols3 if needed */
+}
+
+.whats-in-it {
+  text-align: center;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 5vw;
+  color: rgb(206, 198, 209);
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 0;
+}
+
+.lunar-can img {
+  display: block;
+  margin: 0 auto;
+  width: 500px;    /* or any size you want */
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+@keyframes glow-pink {
+  0% {
+    filter: drop-shadow(0 0 20px #e9acff) drop-shadow(0 0 30px #a14fb6);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px #e9acff) drop-shadow(0 0 60px #a14fb6);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px #e9acff) drop-shadow(0 0 30px #a14fb6);
+  }
+}
+
+@keyframes glow-blue {
+  0% {
+    filter: drop-shadow(0 0 20px #9ebdfb) drop-shadow(0 0 30px #61e7ff);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px #9ebdfb) drop-shadow(0 0 60px #61e7ff);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px #9ebdfb) drop-shadow(0 0 30px #61e7ff);
+  }
+}
+
+@keyframes glow-white {
+  0% {
+    filter: drop-shadow(0 0 20px #534c57) drop-shadow(0 0 30px #a69a9a);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px #c4bec7) drop-shadow(0 0 60px #a69a9a);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px #534c57) drop-shadow(0 0 30px #a69a9a);
+  }
+}
+
+@keyframes glow-dark-blue {
+  0% {
+    filter: drop-shadow(0 0 20px #553fab) drop-shadow(0 0 30px #2c318e);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px #553fab) drop-shadow(0 0 60px #2c318e);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px #553fab) drop-shadow(0 0 30px #2c318e);
+  }
+}
+@keyframes glow-purple {
+  0% {
+    filter: drop-shadow(0 0 20px #6e1e8b) drop-shadow(0 0 30px #4f0f6f);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px #6e1e8b) drop-shadow(0 0 60px #4f0f6f);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px #6e1e8b) drop-shadow(0 0 30px #4f0f6f);
+  }
+}
+
+.glow {
+  animation: glow-pink 3s infinite alternate;
+}
+
+
+.cols2 {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  gap: 3.3%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 80vh;
+}
+
+.blue-can {
+  height: auto;    /* Keeps the aspect ratio */
+  max-width:30%;
+  padding: auto;
+}
+
+.ingredient-title {
+  font-size: 3vw;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  color: rgb(206, 198, 209);
+  margin: 0;
+  text-align: center;
+  margin-bottom: 0rem;
+  animation: glow-white 3s infinite alternate
+}
+
+.squiggle {
+  margin: 0;
+  animation: glow-white 3s infinite alternate
+}
+
+.col1,
+.col2,
+.col3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* or space-between if you want to fill the height */
+  gap: 2rem;
+  font-family: 'League Spartan', sans-serif;
+  text-align: center;
+  font-size: 2vw;
+  color: rgb(206, 198, 209);
+  letter-spacing: 0.01em;
+  margin: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+.melatoninInfo,
+.magnesiumInfo,
+.ltheanineInfo {
+  margin-top: 0rem;
+  margin-bottom: 0;
+  margin-top: 50px;
+  padding-bottom: 0;
+  font-size: 1.5vw;
+}
+
+.cols3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3.3%;
+  margin-top: 100px; /* match .cols2 if needed */
+}
+
+.col4 {
+  display: flex;
+  flex-direction: row;     
+  align-items: center;     
+  justify-content: center; 
+  gap: 2rem;                
+  text-align: left;       
+}
+
+.how-take-it {
+  text-align: center;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 5vw;
+  color: rgb(206, 198, 209);
+  letter-spacing: 0.01em;
+  margin: 0;
+  margin-right: 0px;
+  padding-top: 0px;
+}
+
+.orange-can img {
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  padding-top: 0px;
+  width: 500px;    /* or any size you want */
+  height: auto;    /* keeps aspect ratio */
+  display: block;  /* removes inline gap */
+  margin: 50 auto;  /* centers the image */
+  animation: glow-white 3s infinite alternate;
+}
+
+
+
+.cols4 {
+  display: grid;
+  grid-template-rows: 45% 45%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 80vh;
+}
+
+
+.lunar-how-title {
+  font-size: 3vw;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  color: rgb(206, 198, 209);
+  margin: 0;
+  text-align: center;
+  margin-bottom: 0rem;
+}
+
+.lunarInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; /* or space-between if you want to fill the height */
+  gap: 2rem;
+  font-family: 'League Spartan', sans-serif;
+  text-align: center;
+  font-size: 2vw;
+  color: rgb(206, 198, 209);
+  letter-spacing: 0.01em;
+  margin: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /* ─── SHOOTING STARS ──────────────────────────────────────────── */
@@ -258,63 +496,3 @@
 }
 
 
-/* wrap your “what is” + “usage” */
-.content-sections {
-  width: 100%;
-  padding: 8vw 10vw;
-  background: #0f1140;     /* a darker backdrop to set it apart from the hero */
-  color: #dce0f0;
-  font-family: 'League Spartan', sans-serif;
-  margin-top: 25vh;
-}
-
-/* What is Lunar? */
-.what-is-lunar h2 {
-  font-size: 4vw;
-  margin-bottom: 1.5vw;
-}
-.what-is-lunar p {
-  font-size: 1.6vw;
-  line-height: 1.4;
-  margin-bottom: 1vw;
-}
-.what-is-lunar ul {
-  list-style: disc inside;
-  margin-left: 2vw;
-}
-.what-is-lunar ul li ul {
-  list-style: circle inside;
-  margin-top: 0.5vw;
-  margin-left: 1vw;
-}
-
-/* Proper Usage */
-.proper-usage {
-  margin-top: 6vw;
-}
-.proper-usage h2 {
-  font-size: 4vw;
-  margin-bottom: 1.5vw;
-}
-.proper-usage p {
-  font-size: 1.6vw;
-  line-height: 1.5;
-}
-.usage-steps {
-  margin: 2vw 0;
-  /* you can lay out your 4–5 step graphic as a flex grid here */
-  display: flex;
-  gap: 2vw;
-  /* placeholder boxes */
-}
-.usage-note {
-  font-size: 1.4vw;
-  font-style: italic;
-  opacity: 0.8;
-}
-
-/* tweak Footer to sit nicely after content */
-footer {
-  margin-top: auto;
-  position-anchor: bottom;
-}
