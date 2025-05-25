@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import './about-us.css';
 import ShootingStars from '../components/stars';
 import SmallStars from '../components/small-stars';
+import lunarLogo from '../images/lunarlogofinal.png'; 
 
 export default function AboutUs() {
   const pathRef = useRef(null);
@@ -21,18 +22,18 @@ export default function AboutUs() {
       <SmallStars />
 
       <div className="header">
-        <h1>LUNAR</h1>
+        <img src={lunarLogo} alt="Lunar Logo" className="header-logo" />
         <h2>OUR STORY</h2>
       </div>
 
       <svg
         className="timeline"
-        viewBox="0 0 800 1000"
+        viewBox="0 0 800 3000"
         preserveAspectRatio="xMidYMid meet"
       >
-        {/* ...defs content is unchanged... */}
+        {/* ...defs content remains the same... */}
         <defs>
-          <linearGradient id="pathGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1000">
+          <linearGradient id="pathGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="3000">
             <stop offset="0%" stopColor="#ffffff" />
             <stop offset="25%" stopColor="#6A9BFF" />
             <stop offset="65%" stopColor="#6A9BFF" />
@@ -59,17 +60,16 @@ export default function AboutUs() {
             </feMerge>
           </filter>
         </defs>
-
+        
         <path
           ref={pathRef}
           className="timeline-path"
           d="
-            M 660, 80
-            C 660, 150, 460, 150, 460, 220
-            C 460, 290, 760, 310, 760, 380
-            C 760, 450, 230, 480, 230, 600
-            C 230, 720, 510, 750, 510, 820
-            C 510, 890, 460, 950, 410, 980
+            M 700, 100
+            C 700, 400, 100, 500, 100, 800
+            C 100, 1100, 700, 1200, 700, 1500
+            C 700, 1800, 100, 1900, 100, 2200
+            C 100, 2500, 700, 2600, 700, 2900
           "
           stroke="url(#pathGradient)"
           strokeWidth="10"
@@ -80,26 +80,26 @@ export default function AboutUs() {
         />
       </svg>
 
-      {/* ...event divs are unchanged... */}
+      {/* Events */}
       <div className="event event1">
-        gurt 2022
-        <span>blurb blurb blurb blurb</span>
+        The Idea
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
       </div>
       <div className="event event2">
-        gurt 2022
-        <span>blurb blurb blurb blurb</span>
+        First Prototype
+        <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
       </div>
       <div className="event event3">
-        gurt 2022
-        <span>blurb blurb blurb blurb</span>
+        Funding Secured
+        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</span>
       </div>
       <div className="event event4">
-        gurt 2022
-        <span>blurb blurb blurb blurb</span>
+        Official Launch
+        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</span>
       </div>
       <div className="event event5">
-        gurt 2022
-        <span>blurb blurb blurb blurb</span>
+        Expansion
+        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</span>
       </div>
     </div>
   );
