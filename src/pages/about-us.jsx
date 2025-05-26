@@ -31,13 +31,31 @@ export default function AboutUs() {
         viewBox="0 0 800 3000"
         preserveAspectRatio="xMidYMid meet"
       >
-        {/* ...defs content remains the same... */}
+        {/* --- MODIFIED DEFS --- */}
         <defs>
-          <linearGradient id="pathGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="3000">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="25%" stopColor="#6A9BFF" />
-            <stop offset="65%" stopColor="#6A9BFF" />
-            <stop offset="100%" stopColor="#B26EFF" />
+          <linearGradient id="pathGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="6000">
+            {/* The color pattern is now symmetrical to make it loop seamlessly */}
+            <stop offset="0%"    stopColor="#B26EFF" /> 
+            <stop offset="12.5%" stopColor="#6A9BFF" />
+            <stop offset="25%"   stopColor="#ffffff" />
+            <stop offset="37.5%" stopColor="#6A9BFF" />
+            <stop offset="50%"   stopColor="#B26EFF" />
+            
+            {/* The exact same pattern is repeated for the second half */}
+            <stop offset="50%"   stopColor="#B26EFF" />
+            <stop offset="62.5%" stopColor="#6A9BFF" />
+            <stop offset="75%"   stopColor="#ffffff" />
+            <stop offset="87.5%" stopColor="#6A9BFF" />
+            <stop offset="100%"  stopColor="#B26EFF" />
+            
+            <animateTransform
+                attributeName="gradientTransform"
+                type="translate"
+                from="0 -3000"
+                to="0 0"
+                dur="6s"
+                repeatCount="indefinite"
+                />
           </linearGradient>
 
           <filter id="blueGlow">
@@ -82,23 +100,23 @@ export default function AboutUs() {
 
       {/* Events */}
       <div className="event event1">
-        The Idea
+        <h3>The Idea</h3>
         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
       </div>
       <div className="event event2">
-        First Prototype
+        <h3>First Prototype</h3>
         <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
       </div>
       <div className="event event3">
-        Funding Secured
+        <h3>Funding Secured</h3>
         <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</span>
       </div>
       <div className="event event4">
-        Official Launch
+        <h3>Official Launch</h3>
         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</span>
       </div>
       <div className="event event5">
-        Expansion
+        <h3>Expansion</h3>
         <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</span>
       </div>
     </div>
