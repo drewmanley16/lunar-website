@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './contact.css';
 import boardwalkBack from '../images/boardwalkback.png';
 import boardwalkFore from '../images/boardwalkfore.png';
@@ -20,9 +20,6 @@ function Contact() {
 
       {/* Stars Layer */}
       <div className="stars-layer">
-        <div className="shooting-stars-container">
-          <ShootingStars count={8} />
-        </div>
         <div className="small-stars-container">
           <SmallStars count={25} popSpeed={6} />
         </div>
@@ -44,7 +41,7 @@ function Contact() {
           <div className="subtitle">We would love to hear from you!</div>
 
           <form
-            className="buy-form"
+            className="contact-form"
             onSubmit={(e) => {
               e.preventDefault();
               alert("Thanks! We'll reach out soon 🌙");
@@ -70,6 +67,10 @@ function Contact() {
           </form>
 
         </div>
+      </div>
+      
+      <div className="shooting-stars-container">
+        <ShootingStars count={8} />
       </div>
       <Footer />
      </div>
