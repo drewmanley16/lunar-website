@@ -2,40 +2,31 @@ import React, { useState } from "react";
 import "./buy.css";
 import ShootingStars from "../components/stars";
 import Footer from "../components/footer";
+import blueCan from "../images/blue-can.png";
 
 function Buy() {
   const [openFaq, setOpenFaq] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const scrollToForm = () => {
-    document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
-  };
+  const [orderRows, setOrderRows] = useState([{ product: "", size: "", quantity: 1 }]);
 
   const products = [
     {
       name: "Lunar Original",
-      description: "Our signature sleep solution, designed for consistency and comfort.",
       price: "$299",
-      details: "Includes breathable material, smart cooling tech, and calming scent infusion.",
-      sizes: ["Single", "6-Pack", "30-Rack"]
+      sizes: ["Single", "6-Pack", "30-Rack"],
+      image: blueCan
     },
     {
       name: "Lunar Dream",
-      description: "Enhanced sleep experience with added support.",
       price: "$399",
-      details: "Features memory foam layering, white noise syncing, and app integration.",
-      sizes: ["Single", "6-Pack", "30-Rack"]
+      sizes: ["Single", "6-Pack", "30-Rack"],
+      image: blueCan
     },
     {
       name: "Lunar Premium",
-      description: "Ultimate sleep technology for deep and rejuvenating rest.",
       price: "$499",
-      details: "Comes with bio-adaptive sensors, REM tracking, and personalized feedback reports.",
-      sizes: ["Single", "6-Pack", "30-Rack"]
+      sizes: ["Single", "6-Pack", "30-Rack"],
+      image: blueCan
     }
   ];
 
@@ -58,6 +49,37 @@ function Buy() {
     }
   ];
 
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const scrollToForm = () => {
+    document.getElementById("order-form").scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleRowChange = (index, field, value) => {
+    const updated = [...orderRows];
+    updated[index][field] = value;
+    setOrderRows(updated);
+  };
+
+  const addOrderRow = () => {
+    setOrderRows([...orderRows, { product: "", size: "", quantity: 1 }]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const summary = orderRows
+      .filter(row => row.product && row.size && row.quantity > 0)
+      .map(row => `${row.quantity} x ${row.product} — ${row.size}`);
+    alert(`Thanks! You ordered:\n${summary.join("\n")}`);
+  };
+
+  const sizesForProduct = (productName) => {
+    const product = products.find(p => p.name === productName);
+    return product ? product.sizes : [];
+  };
+
   return (
     <div className="buy-page">
       <div className="hero-section">
@@ -78,9 +100,9 @@ function Buy() {
               onClick={() => setSelectedProduct(product)}
               style={{ cursor: "pointer" }}
             >
+              <img src={product.image} alt={product.name} style={{ width: "100%", borderRadius: "12px", marginBottom: "1rem" }} />
               <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <span className="price">{product.price}</span>
+              <p>{product.price}</p>
             </div>
           ))}
         </div>
@@ -89,9 +111,9 @@ function Buy() {
       {selectedProduct && (
         <div className="product-modal-overlay" onClick={() => setSelectedProduct(null)}>
           <div className="product-modal" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedProduct.image} alt={selectedProduct.name} style={{ width: "100%", borderRadius: "12px", marginBottom: "1rem" }} />
             <h2>{selectedProduct.name}</h2>
             <p><strong>Price:</strong> {selectedProduct.price}</p>
-            <p>{selectedProduct.details}</p>
             <div className="product-sizes">
               <p><strong>Available Sizes:</strong></p>
               <ul>
@@ -108,23 +130,10 @@ function Buy() {
       <div id="order-form" className="form-section">
         <div className="buy-header">
           <h2>Place Your Order</h2>
-          <p>Fill out this short form and we'll reach out to coordinate delivery directly.</p>
+          <p>Select your product, size, and quantity. Add multiple combos if you'd like.</p>
         </div>
 
-        <form
-          className="buy-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const orders = products.map((product, index) => {
-              const selection = formData.get(`product-${index}`);
-              const quantity = formData.get(`quantity-${index}`);
-              return quantity > 0 ? `${quantity} x ${selection}` : null;
-            }).filter(Boolean);
-
-            alert(`Thanks! You ordered:\n${orders.join("\n")}`);
-          }}
-        >
+        <form className="buy-form" onSubmit={handleSubmit}>
           <label>
             Full Name
             <input type="text" name="name" required />
@@ -140,27 +149,43 @@ function Buy() {
             <input type="text" name="address" required />
           </label>
 
-          <label>
-            Select Product & Quantity
-            {products.map((product, index) => (
-              <div className="order-row" key={index}>
-                <select name={`product-${index}`}>
-                  {product.sizes.map((size, i) => (
-                    <option key={i} value={`${product.name} - ${size}`}>
-                      {product.name} — {size}
-                    </option>
-                  ))}
-                </select>
-                <input
-                  type="number"
-                  name={`quantity-${index}`}
-                  min="0"
-                  placeholder="Qty"
-                />
-              </div>
-            ))}
-          </label>
+          {orderRows.map((row, index) => (
+            <div className="order-row" key={index}>
+              <select
+                value={row.product}
+                onChange={(e) => handleRowChange(index, "product", e.target.value)}
+                required
+              >
+                <option value="">Select Product</option>
+                {products.map((p, i) => (
+                  <option key={i} value={p.name}>{p.name}</option>
+                ))}
+              </select>
 
+              <select
+                value={row.size}
+                onChange={(e) => handleRowChange(index, "size", e.target.value)}
+                required
+                disabled={!row.product}
+              >
+                <option value="">Select Size</option>
+                {sizesForProduct(row.product).map((size, i) => (
+                  <option key={i} value={size}>{size}</option>
+                ))}
+              </select>
+
+              <input
+                type="number"
+                min="1"
+                placeholder="Qty"
+                value={row.quantity}
+                onChange={(e) => handleRowChange(index, "quantity", e.target.value)}
+                required
+              />
+            </div>
+          ))}
+
+          <button type="button" onClick={addOrderRow}>+ Add Another</button>
           <button type="submit">Submit</button>
         </form>
       </div>
