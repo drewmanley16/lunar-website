@@ -8,7 +8,7 @@
     /* fill the viewport */
     position: relative;
     width: 100%;
-    height: 100vh; 
+    min-height: 100vh; 
 }
 
 /* Background Layer */
@@ -52,7 +52,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    min-height: calc(100vh - 120px);
+    padding-bottom: 6rem;
+    padding-top: 9rem;
 }
 
 .container {
@@ -77,14 +79,89 @@ h1 {
     letter-spacing: 2px;
 }
 
+footer {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.lofi-footer {
+  position: relative;
+  z-index: 5;
+}
+
 .subtitle {
     font-size: 16px;
     margin-bottom: 20px;
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  color: white;
+}
+
+.contact-form label {
+  font-family: "League Spartan", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border: 1px solid #8ab4f8;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Button style: modern pill gradient */
+.contact-form button {
+  background: white;
+  color: black;
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-family: "League Spartan", sans-serif;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(to right, #ff9d3b, #a6c9ff);
+  transform: scale(1.02);
 }
 
 input,
@@ -114,4 +191,9 @@ button {
 
 button:hover {
     background-color: #ddd;
+}
+
+.lofi-footer {
+  position: relative;
+  z-index: 5;
 }

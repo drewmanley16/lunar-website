@@ -2,17 +2,33 @@ import React, { useState } from "react";
 import "./buy.css";
 import ShootingStars from "../components/stars";
 import Footer from "../components/footer";
+import blueCan from "../images/blue-can.png";
 
 function Buy() {
   const [openFaq, setOpenFaq] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [orderRows, setOrderRows] = useState([{ product: "", size: "", quantity: 1 }]);
 
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const scrollToForm = () => {
-    document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
-  };
+  const products = [
+    {
+      name: "Lunar Original",
+      price: "$299",
+      sizes: ["Single", "6-Pack", "30-Rack"],
+      image: blueCan
+    },
+    {
+      name: "Lunar Dream",
+      price: "$399",
+      sizes: ["Single", "6-Pack", "30-Rack"],
+      image: blueCan
+    },
+    {
+      name: "Lunar Premium",
+      price: "$499",
+      sizes: ["Single", "6-Pack", "30-Rack"],
+      image: blueCan
+    }
+  ];
 
   const faqs = [
     {
@@ -33,9 +49,39 @@ function Buy() {
     }
   ];
 
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const scrollToForm = () => {
+    document.getElementById("order-form").scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleRowChange = (index, field, value) => {
+    const updated = [...orderRows];
+    updated[index][field] = value;
+    setOrderRows(updated);
+  };
+
+  const addOrderRow = () => {
+    setOrderRows([...orderRows, { product: "", size: "", quantity: 1 }]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const summary = orderRows
+      .filter(row => row.product && row.size && row.quantity > 0)
+      .map(row => `${row.quantity} x ${row.product} — ${row.size}`);
+    alert(`Thanks! You ordered:\n${summary.join("\n")}`);
+  };
+
+  const sizesForProduct = (productName) => {
+    const product = products.find(p => p.name === productName);
+    return product ? product.sizes : [];
+  };
+
   return (
     <div className="buy-page">
-      {/* Hero Section */}
       <div className="hero-section">
         <h1>Experience Lunar</h1>
         <p>Transform your sleep with our premium sleep solutions</p>
@@ -44,44 +90,50 @@ function Buy() {
         </button>
       </div>
 
-      {/* Products Section */}
       <div className="products-section">
         <h2>Our Products</h2>
         <div className="product-grid">
-          <div className="product-card">
-            <h3>Lunar Original</h3>
-            <p>Our signature sleep solution</p>
-            <span className="price">$299</span>
-          </div>
-          <div className="product-card">
-            <h3>Lunar Dream</h3>
-            <p>Enhanced sleep experience</p>
-            <span className="price">$399</span>
-          </div>
-          <div className="product-card">
-            <h3>Lunar Premium</h3>
-            <p>Ultimate sleep technology</p>
-            <span className="price">$499</span>
-          </div>
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="product-card"
+              onClick={() => setSelectedProduct(product)}
+              style={{ cursor: "pointer" }}
+            >
+              <img src={product.image} alt={product.name} style={{ width: "100%", borderRadius: "12px", marginBottom: "1rem" }} />
+              <h3>{product.name}</h3>
+              <p>{product.price}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Order Form Section */}
+      {selectedProduct && (
+        <div className="product-modal-overlay" onClick={() => setSelectedProduct(null)}>
+          <div className="product-modal" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedProduct.image} alt={selectedProduct.name} style={{ width: "100%", borderRadius: "12px", marginBottom: "1rem" }} />
+            <h2>{selectedProduct.name}</h2>
+            <p><strong>Price:</strong> {selectedProduct.price}</p>
+            <div className="product-sizes">
+              <p><strong>Available Sizes:</strong></p>
+              <ul>
+                {selectedProduct.sizes.map((size, idx) => (
+                  <li key={idx}>{size}</li>
+                ))}
+              </ul>
+            </div>
+            <button onClick={() => setSelectedProduct(null)}>Close</button>
+          </div>
+        </div>
+      )}
+
       <div id="order-form" className="form-section">
         <div className="buy-header">
           <h2>Place Your Order</h2>
-          <p>
-            Fill out this short form and we'll reach out to coordinate delivery directly.
-          </p>
+          <p>Select your product, size, and quantity. Add multiple combos if you'd like.</p>
         </div>
 
-        <form
-          className="buy-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            alert("Thanks! We'll reach out soon 🌙");
-          }}
-        >
+        <form className="buy-form" onSubmit={handleSubmit}>
           <label>
             Full Name
             <input type="text" name="name" required />
@@ -97,22 +149,53 @@ function Buy() {
             <input type="text" name="address" required />
           </label>
 
-          <label>
-            What would you like to order?
-            <textarea name="order" rows="3" placeholder="e.g. 2x Lunar Original, 1x Lunar Dream" />
-          </label>
+          {orderRows.map((row, index) => (
+            <div className="order-row" key={index}>
+              <select
+                value={row.product}
+                onChange={(e) => handleRowChange(index, "product", e.target.value)}
+                required
+              >
+                <option value="">Select Product</option>
+                {products.map((p, i) => (
+                  <option key={i} value={p.name}>{p.name}</option>
+                ))}
+              </select>
 
+              <select
+                value={row.size}
+                onChange={(e) => handleRowChange(index, "size", e.target.value)}
+                required
+                disabled={!row.product}
+              >
+                <option value="">Select Size</option>
+                {sizesForProduct(row.product).map((size, i) => (
+                  <option key={i} value={size}>{size}</option>
+                ))}
+              </select>
+
+              <input
+                type="number"
+                min="1"
+                placeholder="Qty"
+                value={row.quantity}
+                onChange={(e) => handleRowChange(index, "quantity", e.target.value)}
+                required
+              />
+            </div>
+          ))}
+
+          <button type="button" onClick={addOrderRow}>+ Add Another</button>
           <button type="submit">Submit</button>
         </form>
       </div>
 
-      {/* FAQ Section */}
       <div className="faq-section">
         <h2>Frequently Asked Questions</h2>
         <div className="faq-list">
           {faqs.map((faq, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`faq-item ${openFaq === index ? 'open' : ''}`}
               onClick={() => toggleFaq(index)}
             >
@@ -137,4 +220,3 @@ function Buy() {
 }
 
 export default Buy;
-
