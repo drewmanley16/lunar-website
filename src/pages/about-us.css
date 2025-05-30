@@ -8,13 +8,16 @@ html, body {
   position: relative;
   width: 100%; height: 300vh;
   background: linear-gradient(to bottom, #0e0a3a, #050218);
-  overflow: hidden;
+  overflow-x: hidden; 
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
 
 .header {
-  position: absolute; top: 60px; left: 60px; z-index: 10;
+  position: absolute; 
+  top: 60px; 
+  left: 60px; 
+  z-index: 10;
   display: flex;
   align-items: center;
 }
@@ -31,10 +34,12 @@ html, body {
 
 .timeline {
   position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%; z-index: 1;
+  width: 100%; 
+  height: 100%; 
+  z-index: 3; 
+  pointer-events: none; 
 }
 
-/* --- ANIMATION STYLES --- */
 .timeline-path {
   stroke-dasharray: var(--path-length);
   stroke-dashoffset: var(--path-length);
@@ -46,25 +51,26 @@ html, body {
     stroke-dashoffset: 0;
   }
 }
-/* ------------------------ */
 
 .event {
-  position: absolute; width: 200px;
+  position: absolute; 
+  width: 200px; 
   padding: 16px;
-  background: rgba(255,255,255,0.08);
+  background: #0e0a3a; 
   border-radius: 8px; 
-  border: 1px solid rgba(176, 176, 255, 0.3);
-  box-shadow: 0 0 15px rgba(106, 155, 255, 0.1);
+  border: 1px solid rgba(176, 176, 255, 0.3); 
+  box-shadow: 0 0 15px rgba(106, 155, 255, 0.1); 
   text-align: center;
   opacity: 0; 
   animation: fadeIn 1s forwards;
-  z-index: 10;
+  z-index: 4; 
   transition: transform 0.3s ease, background-color 0.3s ease;
+  pointer-events: auto;
 }
 
 .event:hover {
   transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: #1c1652; 
 }
 
 .event h3 {
@@ -82,36 +88,93 @@ html, body {
 }
 @keyframes fadeIn { to { opacity: 1; } }
 
-/* Your adjusted event positions */
+/* Default event positions for WIDER screens (desktop > 1000px) */
 .event1 { top: 3%; left: 75%; animation-delay: 1.0s; }
 .event2 { top: 24%; left: 5%; animation-delay: 2.5s; }
 .event3 { top: 49%; left: 75%; animation-delay: 4.0s; }
 .event4 { top: 72%; left: 5%; animation-delay: 5.5s; }
 .event5 { top: 95%; left: 75%; animation-delay: 7.0s; }
 
-
-/* ─── STARS ───────────────────────────────────────────────── */
+/* ----- STARS ----- */
 .shooting-stars, .small-stars-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; overflow: hidden;
+}
+.shooting-stars { z-index: 2; }
+.small-stars-container { z-index: 1; }
+.header, .event { z-index: 4; }
+/* .timeline { z-index: 3; } Redundant due to rule above, but fine */
+
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/* │ MEDIA QUERIES FOR RESPONSIVENESS                                        │ */
+/* ───────────────────────────────────────────────────────────────────────── */
+
+/* Screens <= 1000px wide - CENTERING LOGIC APPLIED HERE */
+@media (max-width: 1000px) {
+  .header {
+    top: 30px; left: 50%; transform: translateX(-50%); width: 90%;
+    flex-direction: column; align-items: center; text-align: center;
+  }
+  .header-logo { height: 60px; margin-right: 0; margin-bottom: 10px; }
+  .header h2 { font-size: 1.3rem; }
+
+  .event {
+    width: 60%; 
+    max-width: 320px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    margin-bottom: 30px; 
+  }
+  
+  /* Remove hover effect for event boxes on smaller screens */
+  .event:hover {
+    transform: none; /* Or transform: scale(1); */
+    background-color: #0e0a3a; /* Keep original background color on hover */
+  }
+
+  .event1, .event2, .event3, .event4, .event5 {
+    left: 50%; 
+    transform: translateX(-50%);
+  }
+
+  .event1 { top: 10%; } 
+  .event2 { top: 28%; } 
+  .event3 { top: 46%; }
+  .event4 { top: 64%; }
+  .event5 { top: 82%; }
+
+  .event h3 { font-size: 1rem; }
+  .event span { font-size: 0.85rem; line-height: 1.5; }
 }
 
-.shooting-stars {
-  z-index: 2;
-}
+/* Small screens (smartphones) - Further refine the centered layout */
+@media (max-width: 480px) {
+  .header {
+    top: 20px;
+  }
+  .header-logo { height: 50px; margin-bottom: 8px; }
+  .header h2 { font-size: 1.1rem; }
 
-.small-stars-container {
-  z-index: 1;
-}
+  .event {
+    width: 85%; 
+    padding: 12px;
+    margin-bottom: 25px;
+  }
+  
+  /* Ensure hover effect is also static for very small screens if not already covered */
+  .event:hover {
+    transform: none;
+    background-color: #0e0a3a; 
+  }
 
-.timeline {
-  z-index: 3;
-}
-.header, .event {
-  z-index: 4;
+  .event h3 { font-size: 0.9rem; }
+  .event span { font-size: 0.75rem; line-height: 1.4; }
+
+  .event1 { top: 12%; }
+  .event2 { top: 30%; }
+  .event3 { top: 48%; }
+  .event4 { top: 66%; }
+  .event5 { top: 84%; }
 }
