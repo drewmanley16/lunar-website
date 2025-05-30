@@ -7,6 +7,7 @@ import ShootingStars from "../components/stars";
 import SmallStars from "../components/small-stars";
 import blueCan from "../images/blue-can.png";
 import orangeCan from "../images/orange-can.png";
+import Footer from "../components/footer.jsx";
 const melatoninInfo = "Supports your natural sleep cycle and helps you fall asleep faster, so you wake up feeling refreshed and restored";
 const magnesiumInfo = "Calms your body and mind, eases stress, and promotes deep, restful sleep for total overnight recovery";
 const ltheanineInfo = "Encourages relaxation and tranquility, reduces stress, and helps you unwind for a peaceful night’s sleep";
@@ -135,13 +136,16 @@ function Home() {
         </div>
 
           <div className= "cols4">
+            <div></div>
             <div className="lunar-how-title">Proper Usage</div>
-            <div className= "lunarInfo">{lunarInfo}</div>
+            <div className="lunar-info-container">
+              <div className= "lunarInfo">{lunarInfo}</div>
+            </div>
+            <div></div>
           </div>
 
-
         </div>
-      
+    <Footer></Footer>
     </div>
   );
 }

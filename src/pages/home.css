@@ -97,7 +97,7 @@
   position: relative;
   width: 100vw;
   /* Height set high for scroll-based effects */
-  height: 1000vh;
+  height: 600vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -151,7 +151,7 @@
   color: rgb(206, 198, 209);
   letter-spacing: 0.01em;
   margin: 0;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Arial', sans-serif;
 }
 
 /* ─── BUILDINGS ───────────────────────────────────────────────── */
@@ -225,7 +225,7 @@
 
 .whats-in-it {
   text-align: center;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 5vw;
   color: rgb(206, 198, 209);
   letter-spacing: 0.01em;
@@ -326,7 +326,7 @@
 
 .ingredient-title {
   font-size: 3vw;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-weight: bold;
   color: rgb(206, 198, 209);
   margin: 0;
@@ -348,7 +348,7 @@
   align-items: center;
   justify-content: flex-start; /* or space-between if you want to fill the height */
   gap: 2rem;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Arial', sans-serif;
   text-align: center;
   font-size: 2vw;
   color: rgb(206, 198, 209);
@@ -389,7 +389,7 @@
 
 .how-take-it {
   text-align: center;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 5vw;
   color: rgb(206, 198, 209);
   letter-spacing: 0.01em;
@@ -414,7 +414,7 @@
 
 .cols4 {
   display: grid;
-  grid-template-rows: 45% 45%;
+  grid-template-rows: 25% 25% 25% 25%;
   align-items: center;
   justify-content: center;
   margin-top: 200px;
@@ -425,12 +425,28 @@
 
 .lunar-how-title {
   font-size: 3vw;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-weight: bold;
   color: rgb(206, 198, 209);
   margin: 0;
+  margin-top: 50px;
   text-align: center;
   margin-bottom: 0rem;
+}
+
+.lunar-info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; /* or space-between if you want to fill the height */
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  font-size: 2vw;
+  color: rgb(206, 198, 209);
+  letter-spacing: 0.01em;
+  margin: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .lunarInfo {
@@ -439,12 +455,13 @@
   align-items: center;
   justify-content: flex-start; /* or space-between if you want to fill the height */
   gap: 2rem;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Arial', sans-serif;
   text-align: center;
   font-size: 2vw;
   color: rgb(206, 198, 209);
   letter-spacing: 0.01em;
-  margin: 0;
+  margin-left: 300px;
+  margin-right: 300px;
   margin-bottom: 0;
   padding-bottom: 0;
 }
